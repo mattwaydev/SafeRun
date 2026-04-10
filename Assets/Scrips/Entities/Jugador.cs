@@ -41,8 +41,9 @@ namespace SafeRun.Entities
 
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.Space)) Atacar();
-            if (Input.GetKeyDown(KeyCode.R)) Reportar();
+            //if (Input.GetKeyDown(KeyCode.Space)) Atacar();
+            //if (Input.GetKeyDown(KeyCode.R)) Reportar();
+            //cambiar a nuevo input system en el futuro para estas acciones
         }
 
         public override void Atacar()
