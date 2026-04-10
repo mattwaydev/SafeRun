@@ -1,6 +1,5 @@
-// Jugador.cs — Controlado por el usuario (TAD 3)
-// POO: herencia de Personaje -> Entidad
 using UnityEngine;
+using UnityEngine.InputSystem;
 using SafeRun.Core;
 
 namespace SafeRun.Entities
@@ -9,22 +8,33 @@ namespace SafeRun.Entities
     {
         [SerializeField] private float empatia = 100f;
         [SerializeField] private string skinActual = "default";
-
         [SerializeField] private GestorJuego gestorJuego;
+
+        [SerializeField] private JugadorInputs _inputs;
+        private Vector2 _movimiento;
 
         protected override void Start()
         {
             base.Start();
             if (gestorJuego == null)
                 gestorJuego = FindAnyObjectByType<GestorJuego>();
+
+            // Inicializa el nuevo input system
+            _inputs = new JugadorInputs();
+            _inputs.Gameplay.Movimiento.performed += ctx => _movimiento = ctx.ReadValue<Vector2>();
+            _inputs.Gameplay.Movimiento.canceled  += ctx => _movimiento = Vector2.zero;
+            _inputs.Enable();
+        }
+
+        private void OnDestroy()
+        {
+            _inputs.Disable();
         }
 
         private void FixedUpdate()
         {
-            float h = Input.GetAxisRaw("Horizontal");
-            float v = Input.GetAxisRaw("Vertical");
-            if (h != 0 || v != 0)
-                Mover(new Vector2(h, v).normalized);
+            if (_movimiento != Vector2.zero)
+                Mover(_movimiento.normalized);
             else
                 Mover(Vector2.zero);
         }
@@ -40,7 +50,6 @@ namespace SafeRun.Entities
             Debug.Log("[SafeRun] Jugador lanza respuesta positiva");
         }
 
-        // Habilidad especial del jugador
         public void Reportar()
         {
             Debug.Log("[SafeRun] Jugador reporta al acosador");
@@ -53,9 +62,7 @@ namespace SafeRun.Entities
         private void OnCollisionStay2D(Collision2D col)
         {
             if (col.gameObject.GetComponent<Enemigo>() != null)
-            {
                 RecibirDanio(10f * Time.deltaTime);
-            }
         }
     }
 }
