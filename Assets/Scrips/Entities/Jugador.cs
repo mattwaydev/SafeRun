@@ -2,10 +2,12 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using SafeRun.Core;
 
+
 namespace SafeRun.Entities
 {
     public class Jugador : Personaje
     {
+
         [SerializeField] private float empatia = 100f;
         [SerializeField] private string skinActual = "default";
         [SerializeField] private GestorJuego gestorJuego;
@@ -16,13 +18,14 @@ namespace SafeRun.Entities
         protected override void Start()
         {
             base.Start();
+
             if (gestorJuego == null)
                 gestorJuego = FindAnyObjectByType<GestorJuego>();
 
             // Inicializa el nuevo input system
             _inputs = new JugadorInputs();
             _inputs.Gameplay.Movimiento.performed += ctx => _movimiento = ctx.ReadValue<Vector2>();
-            _inputs.Gameplay.Movimiento.canceled  += ctx => _movimiento = Vector2.zero;
+            _inputs.Gameplay.Movimiento.canceled += ctx => _movimiento = Vector2.zero;
             _inputs.Enable();
         }
 
@@ -34,9 +37,18 @@ namespace SafeRun.Entities
         private void FixedUpdate()
         {
             if (_movimiento != Vector2.zero)
+            {
                 Mover(_movimiento.normalized);
+                _animator.SetBool("isWalking", true);
+                // Si tienes animaciones por dirección:
+                _animator.SetFloat("moveX", _movimiento.x);
+                _animator.SetFloat("moveY", _movimiento.y);
+            }
             else
+            {
                 Mover(Vector2.zero);
+                _animator.SetBool("isWalking", false);
+            }
         }
 
         private void Update()
