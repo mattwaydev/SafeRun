@@ -15,6 +15,19 @@ namespace SafeRun.Entities
         [SerializeField] private JugadorInputs _inputs;
         private Vector2 _movimiento;
 
+        //dash----------------------
+        [Header("Dash")]
+        [SerializeField] private float dashSpeed = 18f;
+        [SerializeField] private float dashDuration = 0.2f;
+        [SerializeField] private float dashCooldown = 3f;
+
+        private bool _isDashing = false;
+        private float _dashTimeLeft = 0f;
+        private float _dashTimer = 0f;
+        private float _dashCooldownTimer = 0f;
+        private Vector2 _dashDirection;
+        //--------------------------------
+
         protected override void Start()
         {
             base.Start();
@@ -36,7 +49,11 @@ namespace SafeRun.Entities
 
         private void FixedUpdate()
         {
-            if (_movimiento != Vector2.zero)
+            if(_isDashing)
+            {
+                _rb.linearVelocity = _dashDirection * dashSpeed;
+            }
+            else if(_movimiento != Vector2.zero)
             {
                 Mover(_movimiento.normalized);
                 _animator.SetBool("isWalking", true);
@@ -47,15 +64,51 @@ namespace SafeRun.Entities
             else
             {
                 Mover(Vector2.zero);
-                _animator.SetBool("isWalking", false);
             }
         }
 
         private void Update()
         {
+            if(_dashCooldownTimer > 0f)
+                _dashCooldownTimer -= Time.deltaTime;
+            
+            if(Keyboard.current.leftShiftKey.wasPressedThisFrame && !_isDashing && _dashCooldownTimer <= 0f)
+            {
+                IniciarDash();
+            }
+
+            if(_isDashing)
+            {
+                _dashTimer -= Time.deltaTime;
+                if(_dashTimer <= 0f)
+                {
+                    _isDashing = false;
+                    _animator.SetBool("isDashing", false);
+                }
+            }
+
+            if(!_isDashing)
+            {
+                _animator.SetBool("isWalking", _movimiento != Vector2.zero);
+                _animator.SetFloat("moveX", _movimiento.x);
+                _animator.SetFloat("moveY", _movimiento.y);
+            }
             //if (Input.GetKeyDown(KeyCode.Space)) Atacar();
             //if (Input.GetKeyDown(KeyCode.R)) Reportar();
             //cambiar a nuevo input system en el futuro para estas acciones
+        }
+
+        private void IniciarDash()
+        {
+            _isDashing = true;
+            _dashTimer = dashDuration;
+            _dashCooldownTimer = dashCooldown;
+
+            _dashDirection = _movimiento.normalized;
+            if(_dashDirection == Vector2.zero)
+                _dashDirection = new Vector2(_animator.GetFloat("moveX"), _animator.GetFloat("moveY")).normalized;
+            
+            _animator.SetBool("isDashing", true);
         }
 
         public override void Atacar()
