@@ -49,6 +49,8 @@ namespace SafeRun.Entities
 
         private void FixedUpdate()
         {
+            if(_estaMuriendo) return;
+
             if(_isDashing)
             {
                 _rb.linearVelocity = _dashDirection * dashSpeed;
@@ -69,6 +71,8 @@ namespace SafeRun.Entities
 
         private void Update()
         {
+            if(_estaMuriendo) return;
+
             if(_dashCooldownTimer > 0f)
                 _dashCooldownTimer -= Time.deltaTime;
             
@@ -89,9 +93,14 @@ namespace SafeRun.Entities
 
             if(!_isDashing)
             {
-                _animator.SetBool("isWalking", _movimiento != Vector2.zero);
-                _animator.SetFloat("moveX", _movimiento.x);
-                _animator.SetFloat("moveY", _movimiento.y);
+                bool caminando = _movimiento != Vector2.zero;
+                _animator.SetBool("isWalking", caminando);
+
+                if (caminando)
+                {
+                    _animator.SetFloat("moveX", _movimiento.x);
+                    _animator.SetFloat("moveY", _movimiento.y);
+                }
             }
             //if (Input.GetKeyDown(KeyCode.Space)) Atacar();
             //if (Input.GetKeyDown(KeyCode.R)) Reportar();
@@ -129,6 +138,12 @@ namespace SafeRun.Entities
         {
             if (col.gameObject.GetComponent<Enemigo>() != null)
                 RecibirDanio(10f * Time.deltaTime);
+        }
+
+        public void OnMuerteTerminada()
+        {
+            Debug.Log("[SafeRun] Jugador ha muerto.");
+            Destroy(gameObject);
         }
     }
 }

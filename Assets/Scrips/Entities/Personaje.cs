@@ -12,7 +12,8 @@ namespace SafeRun.Entities
         protected Animator _animator;
 
         // Guarda la última dirección para el Idle
-        private Vector2 _ultimaDireccion = Vector2.down;
+        protected Vector2 _ultimaDireccion = Vector2.down;
+        protected bool _estaMuriendo = false;
 
         protected override void Start()
         {
@@ -52,10 +53,35 @@ namespace SafeRun.Entities
 
         public override void RecibirDanio(float cantidad)
         {
-            float danioReal = Mathf.Max(0, cantidad - escudo);
-            base.RecibirDanio(danioReal);
+            if (_estaMuriendo) return;
+
+            float danioReal = Mathf.Max(cantidad - escudo, 0);
+            _vidaActual -= danioReal;
+
+            if(_vidaActual <= 0)
+                Morir();
+
         }
 
         public abstract void Atacar();
+
+        protected override void Morir()
+        {
+            if (_estaMuriendo) return;
+            _estaMuriendo = true;   
+
+            if (_rb != null)
+            {
+                _rb.linearVelocity = Vector2.zero;
+                _rb.simulated = false;
+            }
+
+            if (_animator != null)
+            {
+                _animator.SetFloat("moveX", _ultimaDireccion.x);
+                _animator.SetFloat("moveY", _ultimaDireccion.y);
+                _animator.SetBool("isDead", true);
+            }
+        }
     }
 }
