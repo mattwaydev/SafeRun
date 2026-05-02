@@ -15,6 +15,12 @@ namespace SafeRun.Core
         private int _nivel;
         private readonly List<Action<GameState>> _listeners = new();
 
+        public event Action<GameState> EstadoCambiado;
+        public event Action<int> PuntosCambiados;
+        public event Action<string> SubtituloSolicitado;
+        public event Action<string> NarracionSolicitada;
+        public event Action<string> SonidoSolicitado;
+
         
 
         public void Suscribir(Action<GameState> cb)   => _listeners.Add(cb);
@@ -24,12 +30,55 @@ namespace SafeRun.Core
         {
             _estado = nuevo;
             foreach (var cb in _listeners) cb?.Invoke(_estado);
+            EstadoCambiado?.Invoke(_estado);
         }
 
-        public void IniciarNivel(int n) { _nivel = n; CambiarEstado(GameState.Playing); }
-        public void AgregarPuntos(int p) => _puntos += p;
-        public void GameOver() => CambiarEstado(GameState.GameOver);
-        public void Victoria() => CambiarEstado(GameState.Victory);
+        public void IniciarNivel(int n)
+        {
+            _nivel = n;
+            CambiarEstado(GameState.Playing);
+            NarracionSolicitada?.Invoke($"nivel_{n}");
+        }
+
+        public void AgregarPuntos(int p)
+        {
+            int anterior = _puntos;
+            _puntos += p;
+            PuntosCambiados?.Invoke(_puntos);
+
+            if (p > 0 && _puntos / 100 > anterior / 100)
+                SubtituloSolicitado?.Invoke(ObtenerMensajeMotivador());
+        }
+
+        public void SolicitarSubtitulo(string texto) => SubtituloSolicitado?.Invoke(texto);
+        public void SolicitarNarracion(string clave) => NarracionSolicitada?.Invoke(clave);
+        public void SolicitarSonido(string clave) => SonidoSolicitado?.Invoke(clave);
+
+        public void GameOver()
+        {
+            CambiarEstado(GameState.GameOver);
+            SonidoSolicitado?.Invoke("game_over");
+        }
+
+        public void Victoria()
+        {
+            CambiarEstado(GameState.Victory);
+            SonidoSolicitado?.Invoke("victory");
+        }
+
+        private string ObtenerMensajeMotivador()
+        {
+            string[] mensajes =
+            {
+                "Buen trabajo, sigue adelante.",
+                "Cada paso cuenta, tu puedes.",
+                "No estas solo, sigue avanzando.",
+                "Respira, estas mejorando.",
+                "Gran esfuerzo, continua asi."
+            };
+
+            return mensajes[UnityEngine.Random.Range(0, mensajes.Length)];
+        }
 
         public GameState Estado => _estado;
         public int Puntos => _puntos;

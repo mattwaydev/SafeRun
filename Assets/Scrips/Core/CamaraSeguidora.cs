@@ -8,6 +8,16 @@ namespace SafeRun.Core
         [SerializeField] private Transform objetivo;
         [SerializeField] private float suavizado = 5f;
 
+        private void Awake()
+        {
+            if (objetivo == null)
+            {
+                var jugador = FindAnyObjectByType<SafeRun.Entities.Jugador>();
+                if (jugador != null)
+                    objetivo = jugador.transform;
+            }
+        }
+
         private void LateUpdate()
         {
             if (objetivo == null) return;

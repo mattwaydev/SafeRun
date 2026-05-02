@@ -56,7 +56,8 @@ namespace SafeRun.Entities
             if (_estaMuriendo) return;
 
             float danioReal = Mathf.Max(cantidad - escudo, 0);
-            _vidaActual -= danioReal;
+            _vidaActual = Mathf.Max(_vidaActual - danioReal, 0f);
+            NotificarVida();
 
             if(_vidaActual <= 0)
                 Morir();

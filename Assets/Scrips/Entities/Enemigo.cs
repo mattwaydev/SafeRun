@@ -11,14 +11,22 @@ namespace SafeRun.Entities
         [SerializeField] protected TipoAcoso tipoAcoso;
         [SerializeField] protected float agresividad = 1f;
         [SerializeField] protected float rangoDeteccion = 5f;
+        [SerializeField] protected Transform objetivoInicial;
 
         protected Transform _objetivoIA;             
 
         protected override void Start()       
         {
             base.Start();
-            var jugador = FindAnyObjectByType<Jugador>();
-            if (jugador != null) _objetivoIA = jugador.transform;
+            if (objetivoInicial != null)
+            {
+                _objetivoIA = objetivoInicial;
+            }
+            else
+            {
+                var jugador = FindAnyObjectByType<Jugador>();
+                if (jugador != null) _objetivoIA = jugador.transform;
+            }
         }
 
         protected virtual void Update()

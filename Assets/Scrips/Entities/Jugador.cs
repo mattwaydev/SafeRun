@@ -15,6 +15,7 @@ namespace SafeRun.Entities
         [SerializeField] private JugadorInputs _inputs;
         private Vector2 _movimiento;
 
+
         //dash----------------------
         [Header("Dash")]
         [SerializeField] private float dashSpeed = 18f;
@@ -33,13 +34,14 @@ namespace SafeRun.Entities
             base.Start();
 
             if (gestorJuego == null)
-                gestorJuego = FindAnyObjectByType<GestorJuego>();
+                Debug.LogWarning("[SafeRun] GestorJuego no asignado en Jugador. Asignalo en el inspector.");
 
             // Inicializa el nuevo input system
             _inputs = new JugadorInputs();
             _inputs.Gameplay.Movimiento.performed += ctx => _movimiento = ctx.ReadValue<Vector2>();
             _inputs.Gameplay.Movimiento.canceled += ctx => _movimiento = Vector2.zero;
             _inputs.Enable();
+
         }
 
         private void OnDestroy()
@@ -76,11 +78,6 @@ namespace SafeRun.Entities
             if(_dashCooldownTimer > 0f)
                 _dashCooldownTimer -= Time.deltaTime;
             
-            if(Keyboard.current.leftShiftKey.wasPressedThisFrame && !_isDashing && _dashCooldownTimer <= 0f)
-            {
-                IniciarDash();
-            }
-
             if(_isDashing)
             {
                 _dashTimer -= Time.deltaTime;
@@ -102,10 +99,14 @@ namespace SafeRun.Entities
                     _animator.SetFloat("moveY", _movimiento.y);
                 }
             }
-            //if (Input.GetKeyDown(KeyCode.Space)) Atacar();
-            //if (Input.GetKeyDown(KeyCode.R)) Reportar();
-            //cambiar a nuevo input system en el futuro para estas acciones
+            if (Keyboard.current.leftShiftKey.wasPressedThisFrame && !_isDashing && _dashCooldownTimer <= 0f)
+            {
+                IniciarDash();
+            }
+
+            // acciones de ataque/reportar quedan desactivadas por ahora
         }
+
 
         private void IniciarDash()
         {
