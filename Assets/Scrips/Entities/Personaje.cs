@@ -83,6 +83,8 @@ namespace SafeRun.Entities
                 _animator.SetFloat("moveY", _ultimaDireccion.y);
                 _animator.SetBool("isDead", true);
             }
+
+            Destroy(gameObject, 1f);
         }
     }
 }

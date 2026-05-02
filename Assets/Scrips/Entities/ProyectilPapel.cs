@@ -24,14 +24,14 @@ namespace SafeRun.Entities
             transform.Translate(_direccion * velocidad * Time.deltaTime, Space.World);
         }
 
-        private void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        Enemigo enemigo = other.GetComponentInParent<Enemigo>();
+        if (enemigo != null)
         {
-            Enemigo enemigo = other.GetComponent<Enemigo>();
-            if (enemigo != null)
-            {
-                enemigo.RecibirDanio(danio);
-                Destroy(gameObject);
-            }
+            enemigo.RecibirDanio(danio);
+            Destroy(gameObject);
+        }
         }
     }
 }

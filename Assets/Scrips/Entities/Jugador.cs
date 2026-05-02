@@ -180,6 +180,7 @@ namespace SafeRun.Entities
             }
 
             EspejoEmociones espejo = Instantiate(espejoEmocionesPrefab, transform.position, Quaternion.identity);
+            espejo.Configurar(radioEspejo, danioEspejoPorSegundo);
             _cooldownTimerEspejo = cooldownEspejo;
 
             gestorJuego?.SolicitarSubtitulo("Espejo de las Emociones activado — los agresores se enfrentan a si mismos");
