@@ -9,7 +9,31 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu.unity
     guid: 8936255a319da7c4b92e06cf2844bbbd
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 8c9cfa26abfee488c85f1582747f6a02
+    path: Assets/Scenes/School Main.unity
+    guid: 793687eb329381643a9f755f2170b2d2
+  - enabled: 1
+    path: Assets/Scenes/School Salon 1.unity
+    guid: 5bc2c11e136507742a437210dab16c01
+  - enabled: 1
+    path: Assets/Scenes/School Salon 2.unity
+    guid: 241f18a105be1894c8c114caf4125193
+  - enabled: 1
+    path: Assets/Scenes/School Musica.unity
+    guid: 68a78170c36b1264182c2e24aa2f887e
+  - enabled: 1
+    path: Assets/Scenes/School Bathroom.unity
+    guid: 02fd86fd590bf024785a1b9738b6cd29
+  - enabled: 1
+    path: Assets/Scenes/School Arte.unity
+    guid: 527063b7117d2574eb065434d491101f
+  - enabled: 1
+    path: Assets/Scenes/School Comedor.unity
+    guid: 56191246490817945b89bbfe5cd7aba2
+  - enabled: 1
+    path: Assets/Scenes/School  enfermeria.unity
+    guid: 8fc48d1c0f8e7b84b8d0ee7ac51e5c9e
+  - enabled: 1
+    path: Assets/Scenes/School High Rank.unity
+    guid: 410d539b75fc87d46be89187a86998ce
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 5741bc6f3f56c424ab71bff31ff4ac81, type: 3}

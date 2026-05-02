@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 using SafeRun.Core;
 
 
@@ -7,6 +8,7 @@ namespace SafeRun.Entities
 {
     public class Jugador : Personaje
     {
+        private static Jugador _instancia;
 
         [SerializeField] private float empatia = 100f;
         [SerializeField] private string skinActual = "default";
@@ -23,7 +25,6 @@ namespace SafeRun.Entities
         [SerializeField] private float dashCooldown = 3f;
 
         private bool _isDashing = false;
-        private float _dashTimeLeft = 0f;
         private float _dashTimer = 0f;
         private float _dashCooldownTimer = 0f;
         private Vector2 _dashDirection;
@@ -49,6 +50,31 @@ namespace SafeRun.Entities
         {
             base.Start();
 
+            var sr = GetComponent<SpriteRenderer>();
+            if (sr != null)
+                sr.sortingOrder = 100;
+
+            var rb = GetComponent<Rigidbody2D>();
+            if (rb != null)
+            {
+                rb.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
+                rb.interpolation = RigidbodyInterpolation2D.Interpolate;
+            }
+
+            var collider = GetComponent<BoxCollider2D>();
+            if (collider != null)
+            {
+                collider.size = new Vector2(0.11f, 0.18f);
+                collider.offset = new Vector2(0f, -0.01f);
+
+                var material = new PhysicsMaterial2D("JugadorSinFriccion")
+                {
+                    friction = 0f,
+                    bounciness = 0f
+                };
+                collider.sharedMaterial = material;
+            }
+
             if (gestorJuego == null)
                 Debug.LogWarning("[SafeRun] GestorJuego no asignado en Jugador. Asignalo en el inspector.");
 
@@ -60,9 +86,76 @@ namespace SafeRun.Entities
 
         }
 
+        private void Awake()
+        {
+            if (_instancia != null && _instancia != this)
+            {
+                Destroy(gameObject);
+                return;
+            }
+
+            _instancia = this;
+            SceneManager.sceneLoaded += OnSceneLoaded;
+            DontDestroyOnLoad(gameObject);
+        }
+
+        private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+        {
+            ReubicarEnEscena(scene.name);
+        }
+
+        private void ReubicarEnEscena(string nombreEscena)
+        {
+            Transform spawn = null;
+
+            var spawnObj = GameObject.Find("PlayerSpawn");
+            if (spawnObj != null)
+                spawn = spawnObj.transform;
+
+            if (spawn == null)
+                spawnObj = GameObject.Find("JugadorSpawn");
+
+            if (spawnObj != null)
+                spawn = spawnObj.transform;
+
+            if (spawn == null)
+            {
+                if (nombreEscena == "School Main")
+                    spawn = null;
+                else if (nombreEscena == "School Bathroom")
+                    spawn = null;
+                else if (nombreEscena == "School Salon 1")
+                    spawn = null;
+            }
+
+            Vector3 destino;
+            if (spawn != null)
+                destino = spawn.position;
+            else if (nombreEscena == "School Main")
+                destino = new Vector3(0.06f, -2.04f, transform.position.z);
+            else if (nombreEscena == "School Bathroom")
+                destino = new Vector3(0f, 0f, transform.position.z);
+            else if (nombreEscena == "School Salon 1")
+                destino = new Vector3(2.36f, -1.27f, transform.position.z);
+            else
+                return;
+
+            var rb = GetComponent<Rigidbody2D>();
+            if (rb != null)
+                rb.linearVelocity = Vector2.zero;
+
+            transform.position = destino;
+        }
+
         private void OnDestroy()
         {
-            _inputs.Disable();
+            if (_instancia == this)
+                _instancia = null;
+
+            SceneManager.sceneLoaded -= OnSceneLoaded;
+
+            if (_inputs != null)
+                _inputs.Disable();
         }
 
         private void FixedUpdate()

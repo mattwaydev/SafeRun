@@ -10,6 +10,13 @@ namespace SafeRun.Entities
 
         private Vector2 _direccion;
 
+        private void Awake()
+        {
+            var sr = GetComponent<SpriteRenderer>();
+            if (sr != null)
+                sr.sortingOrder = 120;
+        }
+
         public void Configurar(Vector2 direccion, float danioPersonalizado)
         {
             _direccion = direccion.normalized;
@@ -24,14 +31,14 @@ namespace SafeRun.Entities
             transform.Translate(_direccion * velocidad * Time.deltaTime, Space.World);
         }
 
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        Enemigo enemigo = other.GetComponentInParent<Enemigo>();
-        if (enemigo != null)
+        private void OnTriggerEnter2D(Collider2D other)
         {
-            enemigo.RecibirDanio(danio);
-            Destroy(gameObject);
-        }
+            Enemigo enemigo = other.GetComponentInParent<Enemigo>();
+            if (enemigo != null)
+            {
+                enemigo.RecibirDanio(danio);
+                Destroy(gameObject);
+            }
         }
     }
 }

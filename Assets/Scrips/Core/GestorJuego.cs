@@ -8,7 +8,7 @@ namespace SafeRun.Core
 {
     public class GestorJuego : MonoBehaviour
     {
-        
+        private static GestorJuego _instancia;
 
         private GameState _estado;
         private int _puntos;
@@ -20,6 +20,24 @@ namespace SafeRun.Core
         public event Action<string> SubtituloSolicitado;
         public event Action<string> NarracionSolicitada;
         public event Action<string> SonidoSolicitado;
+
+        private void Awake()
+        {
+            if (_instancia != null && _instancia != this)
+            {
+                Destroy(gameObject);
+                return;
+            }
+
+            _instancia = this;
+            DontDestroyOnLoad(gameObject);
+        }
+
+        private void OnDestroy()
+        {
+            if (_instancia == this)
+                _instancia = null;
+        }
 
         
 
