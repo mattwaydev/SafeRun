@@ -7,6 +7,7 @@ namespace SafeRun.Entities
     public class Jefe : Enemigo
     {
         [SerializeField] private int fases = 3;
+        [SerializeField] private float resistenciaConfusion = 0.5f;
         private int _faseActual = 1;
         private float _umbralCambio;
 
@@ -33,6 +34,12 @@ namespace SafeRun.Entities
         public override void LanzarMensaje()
         {
             Debug.Log($"[SafeRun] Jefe (fase {_faseActual}) ataca con patron especial");
+        }
+
+        public override void ActivarConfusion(float duracion, float danoPorSegundo)
+        {
+            base.ActivarConfusion(duracion * resistenciaConfusion, danoPorSegundo);
+            Debug.Log($"[SafeRun] Jefe resiste la confusion — duracion reducida al {resistenciaConfusion * 100f}%");
         }
 
         public int FaseActual => _faseActual;

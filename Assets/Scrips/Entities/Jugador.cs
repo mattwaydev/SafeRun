@@ -29,6 +29,22 @@ namespace SafeRun.Entities
         private Vector2 _dashDirection;
         //--------------------------------
 
+        //combate----------------------
+        [Header("Combate")]
+        [SerializeField] private ProyectilPapel proyectilPapelPrefab;
+        [SerializeField] private Transform puntoDisparo;
+        [SerializeField] private float danioAtaque = 25f;
+        [SerializeField] private float cooldownAtaque = 0.8f;
+        private float _cooldownTimerAtaque;
+
+        [Header("Espejo de las Emociones")]
+        [SerializeField] private EspejoEmociones espejoEmocionesPrefab;
+        [SerializeField] private float radioEspejo = 5f;
+        [SerializeField] private float danioEspejoPorSegundo = 15f;
+        [SerializeField] private float cooldownEspejo = 15f;
+        private float _cooldownTimerEspejo;
+        //--------------------------------
+
         protected override void Start()
         {
             base.Start();
@@ -77,6 +93,12 @@ namespace SafeRun.Entities
 
             if(_dashCooldownTimer > 0f)
                 _dashCooldownTimer -= Time.deltaTime;
+
+            if(_cooldownTimerAtaque > 0f)
+                _cooldownTimerAtaque -= Time.deltaTime;
+
+            if(_cooldownTimerEspejo > 0f)
+                _cooldownTimerEspejo -= Time.deltaTime;
             
             if(_isDashing)
             {
@@ -99,12 +121,21 @@ namespace SafeRun.Entities
                     _animator.SetFloat("moveY", _movimiento.y);
                 }
             }
+
             if (Keyboard.current.leftShiftKey.wasPressedThisFrame && !_isDashing && _dashCooldownTimer <= 0f)
             {
                 IniciarDash();
             }
 
-            // acciones de ataque/reportar quedan desactivadas por ahora
+            if (Keyboard.current.spaceKey.wasPressedThisFrame && _cooldownTimerAtaque <= 0f)
+            {
+                Atacar();
+            }
+
+            if (Keyboard.current.eKey.wasPressedThisFrame && _cooldownTimerEspejo <= 0f)
+            {
+                ActivarEspejo();
+            }
         }
 
 
@@ -123,7 +154,36 @@ namespace SafeRun.Entities
 
         public override void Atacar()
         {
-            Debug.Log("[SafeRun] Jugador lanza respuesta positiva");
+            if (proyectilPapelPrefab == null)
+            {
+                Debug.Log("[SafeRun] Jugador lanza respuesta positiva");
+                _cooldownTimerAtaque = cooldownAtaque;
+                return;
+            }
+
+            Vector2 direccion = _movimiento != Vector2.zero ? _movimiento : _ultimaDireccion;
+            Transform origen = puntoDisparo != null ? puntoDisparo : transform;
+
+            ProyectilPapel proyectil = Instantiate(proyectilPapelPrefab, origen.position, Quaternion.identity);
+            proyectil.Configurar(direccion, danioAtaque);
+
+            _cooldownTimerAtaque = cooldownAtaque;
+            gestorJuego?.SolicitarSubtitulo("Respuesta empatica lanzada");
+        }
+
+        private void ActivarEspejo()
+        {
+            if (espejoEmocionesPrefab == null)
+            {
+                Debug.Log("[SafeRun] Espejo de las Emociones no configurado");
+                return;
+            }
+
+            EspejoEmociones espejo = Instantiate(espejoEmocionesPrefab, transform.position, Quaternion.identity);
+            _cooldownTimerEspejo = cooldownEspejo;
+
+            gestorJuego?.SolicitarSubtitulo("Espejo de las Emociones activado — los agresores se enfrentan a si mismos");
+            gestorJuego?.SolicitarSonido("espejo_emociones");
         }
 
         public void Reportar()

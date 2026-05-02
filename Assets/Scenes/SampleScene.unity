@@ -631,6 +631,14 @@ MonoBehaviour:
   dashSpeed: 18
   dashDuration: 0.2
   dashCooldown: 3
+  proyectilPapelPrefab: {fileID: 6020554790550021232, guid: f896513a2b532cd4e836fa7b91da043b, type: 3}
+  puntoDisparo: {fileID: 0}
+  danioAtaque: 25
+  cooldownAtaque: 0.8
+  espejoEmocionesPrefab: {fileID: 6452845590063260324, guid: 4e2527aad37eb624089182ba44551e12, type: 3}
+  radioEspejo: 5
+  danioEspejoPorSegundo: 15
+  cooldownEspejo: 15
 --- !u!4 &1513983666
 Transform:
   m_ObjectHideFlags: 0
@@ -993,6 +1001,9 @@ MonoBehaviour:
   agresividad: 1
   rangoDeteccion: 5
   objetivoInicial: {fileID: 0}
+  rangoAtaque: 1.5
+  danioAtaque: 15
+  cooldownAtaque: 2
 --- !u!4 &1671784728
 Transform:
   m_ObjectHideFlags: 0
