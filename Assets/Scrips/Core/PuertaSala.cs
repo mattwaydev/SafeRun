@@ -6,7 +6,7 @@ namespace SafeRun.Core
     {
         [SerializeField] private string salaDestino;
         [SerializeField] private string spawnDestino;
-        [SerializeField] private bool volverASalaAnterior = false;
+        [SerializeField] private bool usarSalaAnterior = false;
 
         private bool _activada;
 
@@ -15,16 +15,16 @@ namespace SafeRun.Core
             if (_activada) return;
             if (other.GetComponentInParent<SafeRun.Entities.Jugador>() == null) return;
 
-            _activada = true;
-
             if (GestorEscenas.Instancia == null)
                 return;
+
+            _activada = true;
 
             if (!string.IsNullOrWhiteSpace(spawnDestino))
                 GestorEscenas.Instancia.DefinirSpawnDestino(spawnDestino);
 
-            if (volverASalaAnterior)
-                GestorEscenas.Instancia.IrASala("School Main");
+            if (usarSalaAnterior)
+                GestorEscenas.Instancia.VolverASalaAnterior();
             else if (!string.IsNullOrWhiteSpace(salaDestino))
                 GestorEscenas.Instancia.IrASala(salaDestino);
         }
