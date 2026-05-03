@@ -5,6 +5,7 @@ namespace SafeRun.Core
     public class PuertaSala : MonoBehaviour
     {
         [SerializeField] private string salaDestino;
+        [SerializeField] private string spawnDestino;
         [SerializeField] private bool volverASalaAnterior = false;
 
         private bool _activada;
@@ -18,6 +19,9 @@ namespace SafeRun.Core
 
             if (GestorEscenas.Instancia == null)
                 return;
+
+            if (!string.IsNullOrWhiteSpace(spawnDestino))
+                GestorEscenas.Instancia.DefinirSpawnDestino(spawnDestino);
 
             if (volverASalaAnterior)
                 GestorEscenas.Instancia.IrASala("School Main");

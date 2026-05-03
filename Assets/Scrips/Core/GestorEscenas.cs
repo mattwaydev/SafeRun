@@ -16,8 +16,14 @@ namespace SafeRun.Core
 
         private readonly Stack<string> _historial = new();
         private bool _cargando;
+        private string _spawnDestino;
 
         public static GestorEscenas Instancia => _instancia;
+
+        public void DefinirSpawnDestino(string nombre)
+        {
+            _spawnDestino = string.IsNullOrWhiteSpace(nombre) ? null : nombre;
+        }
 
         private void Awake()
         {
@@ -101,10 +107,30 @@ namespace SafeRun.Core
             yield return SceneManager.LoadSceneAsync(escena);
             yield return null;
             AjustarFisicaEscena();
+            AplicarSpawnDestino();
             Physics2D.SyncTransforms();
             yield return Fade(1f, 0f);
 
             _cargando = false;
+        }
+
+        private void AplicarSpawnDestino()
+        {
+            if (string.IsNullOrWhiteSpace(_spawnDestino))
+                return;
+
+            string spawnNombre = _spawnDestino;
+            _spawnDestino = null;
+
+            var jugador = FindAnyObjectByType<SafeRun.Entities.Jugador>();
+            if (jugador == null)
+                return;
+
+            var spawnObj = GameObject.Find(spawnNombre);
+            if (spawnObj == null)
+                return;
+
+            jugador.transform.position = spawnObj.transform.position;
         }
 
         private void AjustarFisicaEscena()
@@ -124,7 +150,7 @@ namespace SafeRun.Core
                 if (collider == null)
                     collider = tilemap.gameObject.AddComponent<TilemapCollider2D>();
 
-                collider.usedByComposite = true;
+                collider.compositeOperation = Collider2D.CompositeOperation.Merge;
                 collider.extrusionFactor = 0.02f;
 
                 var composite = tilemap.GetComponent<CompositeCollider2D>();
@@ -137,7 +163,6 @@ namespace SafeRun.Core
 
                 rb.bodyType = RigidbodyType2D.Static;
                 rb.simulated = true;
-                collider.compositeOperation = Collider2D.CompositeOperation.Merge;
                 composite.geometryType = CompositeCollider2D.GeometryType.Polygons;
             }
         }
