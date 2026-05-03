@@ -131,7 +131,7 @@ GameObject:
   - component: {fileID: 56493753}
   - component: {fileID: 56493752}
   m_Layer: 0
-  m_Name: atravesable
+  m_Name: traversable
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -816,7 +816,7 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
-  - first: {x: 5, y: -1, z: 0}
+  - first: {x: 4, y: -1, z: 0}
     second:
       serializedVersion: 2
       m_TileIndex: 15
@@ -1203,6 +1203,67 @@ TilemapCollider2D:
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0
   m_UseDelaunayMesh: 0
+--- !u!1001 &607865180
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4783458823514055123, guid: d58ab27c589238c4e8ac9319a1d17eac, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 4.15954
+      objectReference: {fileID: 0}
+    - target: {fileID: 4783458823514055123, guid: d58ab27c589238c4e8ac9319a1d17eac, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.22
+      objectReference: {fileID: 0}
+    - target: {fileID: 4783458823514055123, guid: d58ab27c589238c4e8ac9319a1d17eac, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4783458823514055123, guid: d58ab27c589238c4e8ac9319a1d17eac, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4783458823514055123, guid: d58ab27c589238c4e8ac9319a1d17eac, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4783458823514055123, guid: d58ab27c589238c4e8ac9319a1d17eac, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4783458823514055123, guid: d58ab27c589238c4e8ac9319a1d17eac, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4783458823514055123, guid: d58ab27c589238c4e8ac9319a1d17eac, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4783458823514055123, guid: d58ab27c589238c4e8ac9319a1d17eac, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4783458823514055123, guid: d58ab27c589238c4e8ac9319a1d17eac, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7695615686180369771, guid: d58ab27c589238c4e8ac9319a1d17eac, type: 3}
+      propertyPath: m_Name
+      value: Jugador (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8942619398784647915, guid: d58ab27c589238c4e8ac9319a1d17eac, type: 3}
+      propertyPath: m_SortingOrder
+      value: 5
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d58ab27c589238c4e8ac9319a1d17eac, type: 3}
 --- !u!1 &698142238
 GameObject:
   m_ObjectHideFlags: 0
@@ -6660,3 +6721,4 @@ SceneRoots:
   m_Roots:
   - {fileID: 102067701}
   - {fileID: 1075547566}
+  - {fileID: 607865180}
