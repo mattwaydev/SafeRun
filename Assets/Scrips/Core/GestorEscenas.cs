@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using UnityEngine.Tilemaps;
 
 namespace SafeRun.Core
 {
@@ -44,13 +43,10 @@ namespace SafeRun.Core
                 overlayFade.alpha = 0f;
                 overlayFade.blocksRaycasts = false;
             }
-
-            AjustarFisicaEscena();
         }
 
         private void Start()
         {
-            AjustarFisicaEscena();
         }
 
         private void CrearOverlayFade()
@@ -106,7 +102,6 @@ namespace SafeRun.Core
             yield return Fade(0f, 1f);
             yield return SceneManager.LoadSceneAsync(escena);
             yield return null;
-            AjustarFisicaEscena();
             AplicarSpawnDestino();
             Physics2D.SyncTransforms();
             yield return Fade(1f, 0f);
@@ -131,57 +126,6 @@ namespace SafeRun.Core
                 return;
 
             jugador.transform.position = spawnObj.transform.position;
-        }
-
-        private void AjustarFisicaEscena()
-        {
-            DesactivarAudioListenersDuplicados();
-
-            var tilemaps = FindObjectsByType<Tilemap>(FindObjectsInactive.Exclude);
-            foreach (var tilemap in tilemaps)
-            {
-                string nombre = tilemap.gameObject.name.ToLowerInvariant();
-                bool esPiso = nombre.Contains("piso") || nombre.Contains("suelo") || nombre.Contains("floor") || nombre.Contains("ground") || nombre.Contains("stairs") || nombre.Contains("stair");
-
-                if (esPiso)
-                    continue;
-
-                var collider = tilemap.GetComponent<TilemapCollider2D>();
-                if (collider == null)
-                    collider = tilemap.gameObject.AddComponent<TilemapCollider2D>();
-
-                collider.compositeOperation = Collider2D.CompositeOperation.Merge;
-                collider.extrusionFactor = 0.02f;
-
-                var composite = tilemap.GetComponent<CompositeCollider2D>();
-                if (composite == null)
-                    composite = tilemap.gameObject.AddComponent<CompositeCollider2D>();
-
-                var rb = tilemap.GetComponent<Rigidbody2D>();
-                if (rb == null)
-                    rb = tilemap.gameObject.AddComponent<Rigidbody2D>();
-
-                rb.bodyType = RigidbodyType2D.Static;
-                rb.simulated = true;
-                composite.geometryType = CompositeCollider2D.GeometryType.Polygons;
-            }
-        }
-
-        private void DesactivarAudioListenersDuplicados()
-        {
-            var listeners = FindObjectsByType<AudioListener>(FindObjectsInactive.Exclude);
-            bool encontrado = false;
-
-            foreach (var listener in listeners)
-            {
-                if (!encontrado)
-                {
-                    encontrado = true;
-                    continue;
-                }
-
-                listener.enabled = false;
-            }
         }
 
         private IEnumerator Fade(float desde, float hasta)
