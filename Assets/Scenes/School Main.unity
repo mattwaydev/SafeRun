@@ -63234,6 +63234,7 @@ GameObject:
   - component: {fileID: 2044934465}
   - component: {fileID: 2044934464}
   - component: {fileID: 2044934463}
+  - component: {fileID: 2044934468}
   m_Layer: 0
   m_Name: Barricada
   m_TagString: Untagged
@@ -63818,6 +63819,22 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &2044934468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2044934461}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b92ccb7565ca9940abf8ac438775513, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SafeRun.Core.BarricadaManager
+  jugador: {fileID: 0}
+  parte1: {fileID: 2144237514}
+  parte2: {fileID: 510580434}
+  parte3: {fileID: 1537928212}
 --- !u!1 &2144237514
 GameObject:
   m_ObjectHideFlags: 0

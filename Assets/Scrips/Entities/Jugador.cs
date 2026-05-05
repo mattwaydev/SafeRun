@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using SafeRun.Core;
+using SafeRun.Structures;
 
 
 namespace SafeRun.Entities
@@ -13,6 +14,9 @@ namespace SafeRun.Entities
         [SerializeField] private float empatia = 100f;
         [SerializeField] private string skinActual = "default";
         [SerializeField] private GestorJuego gestorJuego;
+        [SerializeField] private InventarioArmas inventario;
+
+        public InventarioArmas Inventario => inventario;
 
         [SerializeField] private JugadorInputs _inputs;
         private Vector2 _movimiento;
@@ -77,6 +81,9 @@ namespace SafeRun.Entities
 
             if (gestorJuego == null)
                 Debug.LogWarning("[SafeRun] GestorJuego no asignado en Jugador. Asignalo en el inspector.");
+
+            if (inventario == null)
+                inventario = new InventarioArmas();
 
             // Inicializa el nuevo input system
             _inputs = new JugadorInputs();

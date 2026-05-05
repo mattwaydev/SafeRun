@@ -1,6 +1,7 @@
 // InventarioArmas.cs — Lista enlazada simple (TAD ED)
 // ED: estructura Lista Enlazada — inventario del jugador
 // Permite agregar/eliminar armas dinamicamente durante el run
+using System;
 using UnityEngine;
 
 namespace SafeRun.Structures
@@ -9,6 +10,8 @@ namespace SafeRun.Structures
     {
         private NodoArma _cabeza;
         private int _cantidad;
+
+        public event Action<int> InventarioCambiado;
 
         public void Agregar(string nombre, float danio, int municion)
         {
@@ -21,6 +24,7 @@ namespace SafeRun.Structures
                 actual.Siguiente = nuevo;
             }
             _cantidad++;
+            InventarioCambiado?.Invoke(_cantidad);
             Debug.Log($"[Inventario] Arma agregada: {nombre}");
         }
 
