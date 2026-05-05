@@ -1,9 +1,12 @@
 using UnityEngine;
-
+using UnityEngine.InputSystem;
 public class Interactuar : MonoBehaviour
 {
     [SerializeField] private Transform controlador;
     [SerializeField] private Vector2 dimensiones;
+    [SerializeField] private LayerMask capaInteractuable;
+    [SerializeField] private InputActionReference interactuar;
+
 
     public void Update()
     {
@@ -16,7 +19,7 @@ public class Interactuar : MonoBehaviour
 
     private void EInteractuar()
     {
-        Collider2D[] objetos = Physics2D.OverlapBoxAll(controlador.position, dimensiones, 0f);
+        Collider2D[] objetos = Physics2D.OverlapBoxAll(controlador.position, dimensiones, 0f, capaInteractuable);
         foreach (Collider2D objeto in objetos)
         {
             if (objeto.TryGetComponent(out Item item))

@@ -100,6 +100,15 @@ public partial class @JugadorInputs: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Interactuar"",
+                    ""type"": ""Button"",
+                    ""id"": ""ac0d3b02-df7a-4462-b2c5-f77cb1b716aa"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -168,6 +177,17 @@ public partial class @JugadorInputs: IInputActionCollection2, IDisposable
                     ""action"": ""Movimiento"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""342c338a-595e-4deb-9478-0b2b3bbe4d4f"",
+                    ""path"": ""<Keyboard>/f"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Interactuar"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -177,6 +197,7 @@ public partial class @JugadorInputs: IInputActionCollection2, IDisposable
         // Gameplay
         m_Gameplay = asset.FindActionMap("Gameplay", throwIfNotFound: true);
         m_Gameplay_Movimiento = m_Gameplay.FindAction("Movimiento", throwIfNotFound: true);
+        m_Gameplay_Interactuar = m_Gameplay.FindAction("Interactuar", throwIfNotFound: true);
     }
 
     ~@JugadorInputs()
@@ -258,6 +279,7 @@ public partial class @JugadorInputs: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Gameplay;
     private List<IGameplayActions> m_GameplayActionsCallbackInterfaces = new List<IGameplayActions>();
     private readonly InputAction m_Gameplay_Movimiento;
+    private readonly InputAction m_Gameplay_Interactuar;
     /// <summary>
     /// Provides access to input actions defined in input action map "Gameplay".
     /// </summary>
@@ -273,6 +295,10 @@ public partial class @JugadorInputs: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Gameplay/Movimiento".
         /// </summary>
         public InputAction @Movimiento => m_Wrapper.m_Gameplay_Movimiento;
+        /// <summary>
+        /// Provides access to the underlying input action "Gameplay/Interactuar".
+        /// </summary>
+        public InputAction @Interactuar => m_Wrapper.m_Gameplay_Interactuar;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -302,6 +328,9 @@ public partial class @JugadorInputs: IInputActionCollection2, IDisposable
             @Movimiento.started += instance.OnMovimiento;
             @Movimiento.performed += instance.OnMovimiento;
             @Movimiento.canceled += instance.OnMovimiento;
+            @Interactuar.started += instance.OnInteractuar;
+            @Interactuar.performed += instance.OnInteractuar;
+            @Interactuar.canceled += instance.OnInteractuar;
         }
 
         /// <summary>
@@ -316,6 +345,9 @@ public partial class @JugadorInputs: IInputActionCollection2, IDisposable
             @Movimiento.started -= instance.OnMovimiento;
             @Movimiento.performed -= instance.OnMovimiento;
             @Movimiento.canceled -= instance.OnMovimiento;
+            @Interactuar.started -= instance.OnInteractuar;
+            @Interactuar.performed -= instance.OnInteractuar;
+            @Interactuar.canceled -= instance.OnInteractuar;
         }
 
         /// <summary>
@@ -363,5 +395,12 @@ public partial class @JugadorInputs: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnMovimiento(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Interactuar" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnInteractuar(InputAction.CallbackContext context);
     }
 }

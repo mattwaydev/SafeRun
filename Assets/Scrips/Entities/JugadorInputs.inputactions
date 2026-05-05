@@ -14,6 +14,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "Interactuar",
+                    "type": "Button",
+                    "id": "ac0d3b02-df7a-4462-b2c5-f77cb1b716aa",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -82,6 +91,17 @@
                     "action": "Movimiento",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "342c338a-595e-4deb-9478-0b2b3bbe4d4f",
+                    "path": "<Keyboard>/f",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Interactuar",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }
