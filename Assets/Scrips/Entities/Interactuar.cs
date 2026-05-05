@@ -19,9 +19,9 @@ public class Interactuar : MonoBehaviour
         Collider2D[] objetos = Physics2D.OverlapBoxAll(controlador.position, dimensiones, 0f);
         foreach (Collider2D objeto in objetos)
         {
-            if (Item1.TryGetComponent(out Item item))
+            if (objeto.TryGetComponent(out Item item))
             {
-                Item1.EInteractuar();
+                item.Interactuar();
             }
         }
     }
