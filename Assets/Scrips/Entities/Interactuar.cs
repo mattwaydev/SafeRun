@@ -9,19 +9,19 @@ public class Interactuar : MonoBehaviour
     {
         if (Input.GetButtonDown("Interactuar"))
         {
-            RealizarInteraccion();
+            EInteractuar();
         }
     }
 
 
-    private void RealizarInteraccion()
+    private void EInteractuar()
     {
         Collider2D[] objetos = Physics2D.OverlapBoxAll(controlador.position, dimensiones, 0f);
         foreach (Collider2D objeto in objetos)
         {
-            if (objeto.TryGetComponent(out Item item))
+            if (Item1.TryGetComponent(out Item item))
             {
-                item.Interactuar();
+                Item1.EInteractuar();
             }
         }
     }
