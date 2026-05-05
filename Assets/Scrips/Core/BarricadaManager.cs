@@ -20,8 +20,6 @@ namespace SafeRun.Core
             if (jugador != null && jugador.Inventario != null)
             {
                 jugador.Inventario.InventarioCambiado += OnInventarioCambiado;
-                _itemsRemovidos = Mathf.Min(jugador.Inventario.Cantidad, 3);
-                ActualizarBarricada();
             }
         }
 
