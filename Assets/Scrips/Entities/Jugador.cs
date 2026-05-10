@@ -82,8 +82,6 @@ namespace SafeRun.Entities
             if (gestorJuego == null)
                 Debug.LogWarning("[SafeRun] GestorJuego no asignado en Jugador. Asignalo en el inspector.");
 
-            if (inventario == null)
-                inventario = new InventarioArmas();
 
             // Inicializa el nuevo input system
             _inputs = new JugadorInputs();
@@ -102,6 +100,7 @@ namespace SafeRun.Entities
             }
 
             _instancia = this;
+            inventario = new InventarioArmas();
             SceneManager.sceneLoaded += OnSceneLoaded;
             DontDestroyOnLoad(gameObject);
         }

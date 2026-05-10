@@ -50,6 +50,21 @@ namespace SafeRun.Structures
         public int Cantidad => _cantidad;
         public bool EstaVacio => _cabeza == null;
 
+        public bool Contiene(string nombre)
+        {
+            if (_cabeza == null || string.IsNullOrWhiteSpace(nombre))
+                return false;
+
+            var actual = _cabeza;
+            while (actual != null)
+            {
+                if (actual.NombreArma == nombre)
+                    return true;
+                actual = actual.Siguiente;
+            }
+            return false;
+        }
+
         public void Imprimir()
         {
             var actual = _cabeza;

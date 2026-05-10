@@ -8466,7 +8466,7 @@ GameObject:
   - component: {fileID: 1850277262}
   - component: {fileID: 1850277267}
   m_Layer: 6
-  m_Name: item1
+  m_Name: Disparo Papel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
