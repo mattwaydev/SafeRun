@@ -1,9 +1,36 @@
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using SafeRun.Structures;
+
 
 public class Item : MonoBehaviour
-{
-    public void Interactuar()
+{   
+    private static readonly HashSet<string> _itemsRecogidos = new HashSet<string>();
+
+    [SerializeField] private string nombreItem = "Item";
+
+    private string _claveItem;
+
+    private void Awake()
     {
+        _claveItem = ConstruirClave();
+        if (_itemsRecogidos.Contains(_claveItem))
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    public void Interactuar(InventarioArmas inventario)
+    {
+        inventario.Agregar(nombreItem);
+        _itemsRecogidos.Add(_claveItem);
         Destroy(gameObject);
+    }
+
+    private string ConstruirClave()
+    {
+        string escena = SceneManager.GetActiveScene().name;
+        return escena + "|" + nombreItem + "|" + gameObject.name;
     }
 }

@@ -1,5 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using SafeRun.Structures;
+
 public class Interactuar : MonoBehaviour
 {
     [SerializeField] private Transform controlador;
@@ -8,15 +10,31 @@ public class Interactuar : MonoBehaviour
     [SerializeField] private InputActionReference interactuar;
 
 
-    public void Update()
+    private InventarioArmas _inventario;
+
+    private void Start()
     {
-        if (Input.GetButtonDown("Interactuar"))
-        {
-            EInteractuar();
-        }
+        var jugador = GetComponent<SafeRun.Entities.Jugador>();
+        _inventario = jugador.Inventario;
+    }
+    private void OnEnable()
+    {
+        interactuar.action.Enable();
+        
+        interactuar.action.performed += OnInteractuar;
+
     }
 
+    private void OnDisable()
+    {
+        interactuar.action.performed -= OnInteractuar;
+        interactuar.action.Disable();
 
+    }
+    private void OnInteractuar(InputAction.CallbackContext ctx)
+    {
+        EInteractuar();
+    }
     private void EInteractuar()
     {
         Collider2D[] objetos = Physics2D.OverlapBoxAll(controlador.position, dimensiones, 0f, capaInteractuable);
@@ -24,10 +42,13 @@ public class Interactuar : MonoBehaviour
         {
             if (objeto.TryGetComponent(out Item item))
             {
-                item.Interactuar();
+                item.Interactuar(_inventario);
             }
         }
     }
+
+
+
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.blue;

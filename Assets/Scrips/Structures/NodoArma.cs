@@ -5,15 +5,11 @@ namespace SafeRun.Structures
     public class NodoArma
     {
         public string NombreArma;
-        public float Danio;
-        public int Municion;
         public NodoArma Siguiente;
 
-        public NodoArma(string nombre, float danio, int municion)
+        public NodoArma(string nombre)
         {
             NombreArma = nombre;
-            Danio      = danio;
-            Municion   = municion;
             Siguiente  = null;
         }
     }

@@ -182,7 +182,7 @@ public partial class @JugadorInputs: IInputActionCollection2, IDisposable
                     ""name"": """",
                     ""id"": ""342c338a-595e-4deb-9478-0b2b3bbe4d4f"",
                     ""path"": ""<Keyboard>/f"",
-                    ""interactions"": """",
+                    ""interactions"": ""Press"",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Interactuar"",

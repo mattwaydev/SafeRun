@@ -8465,7 +8465,7 @@ GameObject:
   - component: {fileID: 1850277263}
   - component: {fileID: 1850277262}
   - component: {fileID: 1850277267}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: item1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8653,6 +8653,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 809bb07cfa9897d4385d9ce63e1b2641, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Item
+  nombreItem: Disparo Papel
 --- !u!1 &2108531646
 GameObject:
   m_ObjectHideFlags: 0

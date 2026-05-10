@@ -13,9 +13,9 @@ namespace SafeRun.Structures
 
         public event Action<int> InventarioCambiado;
 
-        public void Agregar(string nombre, float danio, int municion)
+        public void Agregar(string nombre)
         {
-            var nuevo = new NodoArma(nombre, danio, municion);
+            var nuevo = new NodoArma(nombre);
             if (_cabeza == null) { _cabeza = nuevo; }
             else
             {
@@ -25,7 +25,7 @@ namespace SafeRun.Structures
             }
             _cantidad++;
             InventarioCambiado?.Invoke(_cantidad);
-            Debug.Log($"[Inventario] Arma agregada: {nombre}");
+            Debug.Log($"[Inventario] Item agregada: {nombre}");
         }
 
         public bool Eliminar(string nombre)
@@ -55,7 +55,7 @@ namespace SafeRun.Structures
             var actual = _cabeza;
             while (actual != null)
             {
-                Debug.Log($"  - {actual.NombreArma} | Daño:{actual.Danio} | Mun:{actual.Municion}");
+                Debug.Log($"  - {actual.NombreArma}");
                 actual = actual.Siguiente;
             }
         }
