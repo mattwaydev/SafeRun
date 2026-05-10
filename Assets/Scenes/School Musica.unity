@@ -781,7 +781,7 @@ GameObject:
   - component: {fileID: 845669758}
   - component: {fileID: 845669757}
   m_Layer: 6
-  m_Name: Item Escudo
+  m_Name: Item Dash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -799,7 +799,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 809bb07cfa9897d4385d9ce63e1b2641, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Item
-  nombreItem: Escudo Emociones
+  nombreItem: Dash
 --- !u!95 &845669758
 Animator:
   serializedVersion: 7

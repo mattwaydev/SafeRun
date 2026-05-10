@@ -30,10 +30,10 @@ EditorBuildSettings:
     path: Assets/Scenes/School Comedor.unity
     guid: 56191246490817945b89bbfe5cd7aba2
   - enabled: 1
-    path: Assets/Scenes/School  enfermeria.unity
-    guid: 8fc48d1c0f8e7b84b8d0ee7ac51e5c9e
-  - enabled: 1
     path: Assets/Scenes/School High Rank.unity
     guid: 410d539b75fc87d46be89187a86998ce
+  - enabled: 1
+    path: Assets/Scenes/School  enfermeria.unity
+    guid: 8fc48d1c0f8e7b84b8d0ee7ac51e5c9e
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 5741bc6f3f56c424ab71bff31ff4ac81, type: 3}

@@ -16,6 +16,10 @@ namespace SafeRun.Entities
         [SerializeField] private GestorJuego gestorJuego;
         [SerializeField] private InventarioArmas inventario;
 
+        [Header("Colision")]
+        [SerializeField] private Vector2 colliderSize = new Vector2(0.11f, 0.18f);
+        [SerializeField] private Vector2 colliderOffset = new Vector2(0f, -0.01f);
+
         public InventarioArmas Inventario => inventario;
 
         [SerializeField] private JugadorInputs _inputs;
@@ -68,8 +72,8 @@ namespace SafeRun.Entities
             var collider = GetComponent<BoxCollider2D>();
             if (collider != null)
             {
-                collider.size = new Vector2(0.11f, 0.18f);
-                collider.offset = new Vector2(0f, -0.01f);
+                collider.size = colliderSize;
+                collider.offset = colliderOffset;
 
                 var material = new PhysicsMaterial2D("JugadorSinFriccion")
                 {
