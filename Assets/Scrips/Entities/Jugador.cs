@@ -244,6 +244,9 @@ namespace SafeRun.Entities
 
         private void IniciarDash()
         {
+            if (inventario == null || inventario.Cantidad < 2)
+                return;
+
             _isDashing = true;
             _dashTimer = dashDuration;
             _dashCooldownTimer = dashCooldown;
@@ -257,6 +260,9 @@ namespace SafeRun.Entities
 
         public override void Atacar()
         {
+            if (inventario == null || inventario.Cantidad < 1)
+                return;
+
             if (proyectilPapelPrefab == null)
             {
                 Debug.Log("[SafeRun] Jugador lanza respuesta positiva");
