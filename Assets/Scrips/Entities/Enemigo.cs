@@ -23,6 +23,7 @@ namespace SafeRun.Entities
         protected bool _confundido;
         protected float _tiempoConfusion;
         protected float _danioConfusionPorSegundo;
+        protected bool _jugadorDetectado;
 
         protected override void Start()
         {
@@ -62,6 +63,21 @@ namespace SafeRun.Entities
 
             float dist = Vector2.Distance(transform.position, _objetivoIA.position);
 
+            if (!_jugadorDetectado)
+            {
+                if (dist < rangoDeteccion)
+                {
+                    _jugadorDetectado = true;
+                    Debug.Log($"[SafeRun] {nombre} detecta al jugador");
+                }
+                else
+                {
+                    Mover(Vector2.zero);
+                    _timerAtaque = cooldownAtaque;
+                    return;
+                }
+            }
+
             if (dist < rangoAtaque)
             {
                 _timerAtaque -= Time.deltaTime;
@@ -74,6 +90,10 @@ namespace SafeRun.Entities
             else if (dist < rangoDeteccion)
             {
                 PatrullarIA();
+            }
+            else
+            {
+                Mover(Vector2.zero);
             }
         }
 
