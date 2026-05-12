@@ -1,0 +1,889 @@
+fileFormatVersion: 2
+guid: 9d2b8decaec7ba84f92ab0e88b31aeaa
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -6813277949973980242
+    second: Bully Rango Attack_0
+  - first:
+      213: -2213561159035577335
+    second: Bully Rango Attack_1
+  - first:
+      213: -2298370400269336112
+    second: Bully Rango Attack_2
+  - first:
+      213: 3691734236251964931
+    second: Bully Rango Attack_3
+  - first:
+      213: 2470659593791249247
+    second: Bully Rango Attack_4
+  - first:
+      213: -3369503937922845393
+    second: Bully Rango Attack_5
+  - first:
+      213: 8593199320917158100
+    second: Bully Rango Attack_6
+  - first:
+      213: -8637136507317548528
+    second: Bully Rango Attack_7
+  - first:
+      213: -7206357909886163248
+    second: Bully Rango Attack_8
+  - first:
+      213: -1901623131191471570
+    second: Bully Rango Attack_9
+  - first:
+      213: 214417542213747133
+    second: Bully Rango Attack_10
+  - first:
+      213: 1629271389934106753
+    second: Bully Rango Attack_11
+  - first:
+      213: 7629683573125585588
+    second: Bully Rango Attack_12
+  - first:
+      213: -6062844995782520042
+    second: Bully Rango Attack_13
+  - first:
+      213: -9062756293903140515
+    second: Bully Rango Attack_14
+  - first:
+      213: -4862897921326547506
+    second: Bully Rango Attack_15
+  - first:
+      213: -2764534741435141699
+    second: Bully Rango Attack_16
+  - first:
+      213: -5470531467244042576
+    second: Bully Rango Attack_17
+  - first:
+      213: 1011074396632381900
+    second: Bully Rango Attack_18
+  - first:
+      213: -7366736455014695405
+    second: Bully Rango Attack_19
+  - first:
+      213: 1786531553018961831
+    second: Bully Rango Attack_20
+  - first:
+      213: 1986084427948757378
+    second: Bully Rango Attack_21
+  - first:
+      213: -4233129720315272577
+    second: Bully Rango Attack_22
+  - first:
+      213: 1138295783049633607
+    second: Bully Rango Attack_23
+  - first:
+      213: 8575071712116173942
+    second: Bully Rango Attack_24
+  - first:
+      213: 6226865680929672688
+    second: Bully Rango Attack_25
+  - first:
+      213: 4901770097080302205
+    second: Bully Rango Attack_26
+  - first:
+      213: 9196288711539005044
+    second: Bully Rango Attack_27
+  - first:
+      213: -4544004911174537957
+    second: Bully Rango Attack_28
+  - first:
+      213: -2714840477074392266
+    second: Bully Rango Attack_29
+  - first:
+      213: -8469888050418143077
+    second: Bully Rango Attack_30
+  - first:
+      213: 1174847416123094774
+    second: Bully Rango Attack_31
+  - first:
+      213: 244053228928035876
+    second: Bully Rango Attack_32
+  - first:
+      213: -7379593885654210463
+    second: Bully Rango Attack_33
+  - first:
+      213: -3325424934568557837
+    second: Bully Rango Attack_34
+  - first:
+      213: -3925567922978252300
+    second: Bully Rango Attack_35
+  - first:
+      213: -5496166223642464260
+    second: Bully Rango Attack_36
+  - first:
+      213: -1655748920813182425
+    second: Bully Rango Attack_37
+  - first:
+      213: -6680058100849202079
+    second: Bully Rango Attack_38
+  - first:
+      213: -3212216545381470825
+    second: Bully Rango Attack_39
+  - first:
+      213: 1519981734354765444
+    second: Bully Rango Attack_40
+  - first:
+      213: -4610968043646997910
+    second: Bully Rango Attack_41
+  - first:
+      213: 927572718485915805
+    second: Bully Rango Attack_42
+  - first:
+      213: 7967505958466785055
+    second: Bully Rango Attack_43
+  - first:
+      213: 296076761998112176
+    second: Bully Rango Attack_44
+  - first:
+      213: 7726386096904001842
+    second: Bully Rango Attack_45
+  - first:
+      213: -3940485352493253194
+    second: Bully Rango Attack_46
+  - first:
+      213: 6526553985822344328
+    second: Bully Rango Attack_47
+  - first:
+      213: 1114520099021171903
+    second: Bully Rango Attack_48
+  - first:
+      213: -378636288117373235
+    second: Bully Rango Attack_49
+  - first:
+      213: -4778907395680857954
+    second: Bully Rango Attack_50
+  - first:
+      213: -5350950327720791421
+    second: Bully Rango Attack_51
+  - first:
+      213: -2874722919728580844
+    second: Bully Rango Attack_52
+  - first:
+      213: 4684060361093378029
+    second: Bully Rango Attack_53
+  - first:
+      213: 2583538526049647881
+    second: Bully Rango Attack_54
+  - first:
+      213: -7510605314724944126
+    second: Bully Rango Attack_55
+  - first:
+      213: -5707773000425578654
+    second: Bully Rango Attack_56
+  - first:
+      213: 427323130605923950
+    second: Bully Rango Attack_57
+  - first:
+      213: 8819660913488504980
+    second: Bully Rango Attack_58
+  - first:
+      213: -2605677102495666142
+    second: Bully Rango Attack_59
+  - first:
+      213: 4257578114597497925
+    second: Bully Rango Attack_60
+  - first:
+      213: -7868122431331714584
+    second: Bully Rango Attack_61
+  - first:
+      213: -1607463852865080142
+    second: Bully Rango Attack_62
+  - first:
+      213: 2867276955202887348
+    second: Bully Rango Attack_63
+  - first:
+      213: -2792852766711445666
+    second: Bully Rango Attack_64
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Bully Rango Attack_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1024
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eab9cc38dcf5271a0800000000000000
+      internalID: -6813277949973980242
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bully Rango Attack_1
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 1024
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 90c15139ad9d741e0800000000000000
+      internalID: -2213561159035577335
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bully Rango Attack_2
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1024
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d18ca95c4c8a10e0800000000000000
+      internalID: -2298370400269336112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bully Rango Attack_3
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 1024
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 30642fc6abcab3330800000000000000
+      internalID: 3691734236251964931
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bully Rango Attack_4
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1024
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f5b96d87fcb894220800000000000000
+      internalID: 2470659593791249247
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bully Rango Attack_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 768
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f2534d6550e1d31d0800000000000000
+      internalID: -3369503937922845393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bully Rango Attack_6
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 768
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4d8256fe04d214770800000000000000
+      internalID: 8593199320917158100
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bully Rango Attack_7
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 768
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 01a87ccab1ab22880800000000000000
+      internalID: -8637136507317548528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bully Rango Attack_8
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 768
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d6a8e079afddfb90800000000000000
+      internalID: -7206357909886163248
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bully Rango Attack_9
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 768
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e229aa066d31c95e0800000000000000
+      internalID: -1901623131191471570
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bully Rango Attack_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 512
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: db1434d5e93c9f200800000000000000
+      internalID: 214417542213747133
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bully Rango Attack_11
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 512
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 188bab762b55c9610800000000000000
+      internalID: 1629271389934106753
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bully Rango Attack_12
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 512
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ba98c439c412e960800000000000000
+      internalID: 7629683573125585588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bully Rango Attack_13
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 512
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 613d02249927cdba0800000000000000
+      internalID: -6062844995782520042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bully Rango Attack_14
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 512
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d59b7ffca2f9a3280800000000000000
+      internalID: -9062756293903140515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bully Rango Attack_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 256
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ecd7854fa14838cb0800000000000000
+      internalID: -4862897921326547506
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bully Rango Attack_16
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 256
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: db1388fbc4662a9d0800000000000000
+      internalID: -2764534741435141699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bully Rango Attack_17
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 256
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b6825a5d94c414b0800000000000000
+      internalID: -5470531467244042576
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bully Rango Attack_18
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 256
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc9f3cc8ece080e00800000000000000
+      internalID: 1011074396632381900
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bully Rango Attack_19
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 256
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 31ebdec893814c990800000000000000
+      internalID: -7366736455014695405
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bully Rango Attack_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7afd8b56bf80bc810800000000000000
+      internalID: 1786531553018961831
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bully Rango Attack_21
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 28112d5b34dff8b10800000000000000
+      internalID: 1986084427948757378
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bully Rango Attack_22
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f72a57c82f6e045c0800000000000000
+      internalID: -4233129720315272577
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bully Rango Attack_23
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 74f9ff5dbf90ccf00800000000000000
+      internalID: 1138295783049633607
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bully Rango Attack_24
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 67c6f2c1a46c00770800000000000000
+      internalID: 8575071712116173942
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 6b921c4a236e7e847a6ddef145e6674b
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":5.0,"y":5.0},"gridSpriteSize":{"x":256.0,"y":256.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      Bully Rango Attack_0: -6813277949973980242
+      Bully Rango Attack_1: -2213561159035577335
+      Bully Rango Attack_10: 214417542213747133
+      Bully Rango Attack_11: 1629271389934106753
+      Bully Rango Attack_12: 7629683573125585588
+      Bully Rango Attack_13: -6062844995782520042
+      Bully Rango Attack_14: -9062756293903140515
+      Bully Rango Attack_15: -4862897921326547506
+      Bully Rango Attack_16: -2764534741435141699
+      Bully Rango Attack_17: -5470531467244042576
+      Bully Rango Attack_18: 1011074396632381900
+      Bully Rango Attack_19: -7366736455014695405
+      Bully Rango Attack_2: -2298370400269336112
+      Bully Rango Attack_20: 1786531553018961831
+      Bully Rango Attack_21: 1986084427948757378
+      Bully Rango Attack_22: -4233129720315272577
+      Bully Rango Attack_23: 1138295783049633607
+      Bully Rango Attack_24: 8575071712116173942
+      Bully Rango Attack_3: 3691734236251964931
+      Bully Rango Attack_4: 2470659593791249247
+      Bully Rango Attack_5: -3369503937922845393
+      Bully Rango Attack_6: 8593199320917158100
+      Bully Rango Attack_7: -8637136507317548528
+      Bully Rango Attack_8: -7206357909886163248
+      Bully Rango Attack_9: -1901623131191471570
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

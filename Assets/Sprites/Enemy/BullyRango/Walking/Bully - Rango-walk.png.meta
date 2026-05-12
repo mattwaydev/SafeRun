@@ -1,0 +1,767 @@
+fileFormatVersion: 2
+guid: e82b744cc511e044ab7135718ef3a251
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -8060628485239449650
+    second: Bully - Rango-walk_0
+  - first:
+      213: -7841032518755026888
+    second: Bully - Rango-walk_1
+  - first:
+      213: -5597348269354188028
+    second: Bully - Rango-walk_2
+  - first:
+      213: 1713046313653532033
+    second: Bully - Rango-walk_3
+  - first:
+      213: 6086768099697352663
+    second: Bully - Rango-walk_4
+  - first:
+      213: -1320707169167911657
+    second: Bully - Rango-walk_5
+  - first:
+      213: -7478127463558523880
+    second: Bully - Rango-walk_6
+  - first:
+      213: -2185113849553443325
+    second: Bully - Rango-walk_7
+  - first:
+      213: -5327676653785679379
+    second: Bully - Rango-walk_8
+  - first:
+      213: 4931809572763031982
+    second: Bully - Rango-walk_9
+  - first:
+      213: 8024590627419888776
+    second: Bully - Rango-walk_10
+  - first:
+      213: 7745366604949476210
+    second: Bully - Rango-walk_11
+  - first:
+      213: 2979488159055515062
+    second: Bully - Rango-walk_12
+  - first:
+      213: 3329023365843545844
+    second: Bully - Rango-walk_13
+  - first:
+      213: -1601443683452971151
+    second: Bully - Rango-walk_14
+  - first:
+      213: -263518088165881761
+    second: Bully - Rango-walk_15
+  - first:
+      213: -3492678937250666182
+    second: Bully - Rango-walk_16
+  - first:
+      213: -8935266562829223316
+    second: Bully - Rango-walk_17
+  - first:
+      213: -3032943685267510493
+    second: Bully - Rango-walk_18
+  - first:
+      213: 2423462251396251717
+    second: Bully - Rango-walk_19
+  - first:
+      213: -5385059301338226358
+    second: Bully - Rango-walk_20
+  - first:
+      213: 5728842406390434973
+    second: Bully - Rango-walk_21
+  - first:
+      213: -2862209423838824241
+    second: Bully - Rango-walk_22
+  - first:
+      213: -3415194811673532603
+    second: Bully - Rango-walk_23
+  - first:
+      213: 6608943786808457107
+    second: Bully - Rango-walk_24
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Bully - Rango-walk_0
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 1091
+        width: 67
+        height: 117
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec758e68915e22090800000000000000
+      internalID: -8060628485239449650
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bully - Rango-walk_1
+      rect:
+        serializedVersion: 2
+        x: 350
+        y: 1091
+        width: 67
+        height: 117
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 838f15fb77e0f2390800000000000000
+      internalID: -7841032518755026888
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bully - Rango-walk_2
+      rect:
+        serializedVersion: 2
+        x: 609
+        y: 1088
+        width: 60
+        height: 118
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4030ff0b7693252b0800000000000000
+      internalID: -5597348269354188028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bully - Rango-walk_3
+      rect:
+        serializedVersion: 2
+        x: 872
+        y: 1088
+        width: 51
+        height: 118
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1857c11db86f5c710800000000000000
+      internalID: 1713046313653532033
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bully - Rango-walk_4
+      rect:
+        serializedVersion: 2
+        x: 1124
+        y: 1089
+        width: 55
+        height: 119
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7dfd3ac665b887450800000000000000
+      internalID: 6086768099697352663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bully - Rango-walk_5
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 836
+        width: 67
+        height: 116
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7155f69b3d7ebade0800000000000000
+      internalID: -1320707169167911657
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bully - Rango-walk_6
+      rect:
+        serializedVersion: 2
+        x: 350
+        y: 833
+        width: 63
+        height: 117
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 814508551ba583890800000000000000
+      internalID: -7478127463558523880
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bully - Rango-walk_7
+      rect:
+        serializedVersion: 2
+        x: 614
+        y: 833
+        width: 53
+        height: 117
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 306a493f78aeca1e0800000000000000
+      internalID: -2185113849553443325
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bully - Rango-walk_8
+      rect:
+        serializedVersion: 2
+        x: 870
+        y: 834
+        width: 53
+        height: 118
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de976f48f4a4016b0800000000000000
+      internalID: -5327676653785679379
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bully - Rango-walk_9
+      rect:
+        serializedVersion: 2
+        x: 1119
+        y: 835
+        width: 66
+        height: 117
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ea959643dae417440800000000000000
+      internalID: 4931809572763031982
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bully - Rango-walk_10
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 576
+        width: 64
+        height: 118
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 88c9a47d8a21d5f60800000000000000
+      internalID: 8024590627419888776
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bully - Rango-walk_11
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 576
+        width: 51
+        height: 118
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 273df27f3e11d7b60800000000000000
+      internalID: 7745366604949476210
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bully - Rango-walk_12
+      rect:
+        serializedVersion: 2
+        x: 612
+        y: 577
+        width: 55
+        height: 119
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6bd8cf4d1b4495920800000000000000
+      internalID: 2979488159055515062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bully - Rango-walk_13
+      rect:
+        serializedVersion: 2
+        x: 862
+        y: 579
+        width: 64
+        height: 116
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4fe64120d11133e20800000000000000
+      internalID: 3329023365843545844
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bully - Rango-walk_14
+      rect:
+        serializedVersion: 2
+        x: 1119
+        y: 576
+        width: 60
+        height: 118
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1771ef7647786c9e0800000000000000
+      internalID: -1601443683452971151
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bully - Rango-walk_15
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 322
+        width: 52
+        height: 117
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f588bfae1bbc75cf0800000000000000
+      internalID: -263518088165881761
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bully - Rango-walk_16
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 323
+        width: 65
+        height: 117
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a396fa6f203878fc0800000000000000
+      internalID: -3492678937250666182
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bully - Rango-walk_17
+      rect:
+        serializedVersion: 2
+        x: 606
+        y: 321
+        width: 66
+        height: 118
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c6a7325f66e8ff380800000000000000
+      internalID: -8935266562829223316
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bully - Rango-walk_18
+      rect:
+        serializedVersion: 2
+        x: 872
+        y: 320
+        width: 51
+        height: 118
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 32badd799c1d8e5d0800000000000000
+      internalID: -3032943685267510493
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bully - Rango-walk_19
+      rect:
+        serializedVersion: 2
+        x: 1126
+        y: 321
+        width: 53
+        height: 119
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 540ca0dd31ed1a120800000000000000
+      internalID: 2423462251396251717
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bully - Rango-walk_20
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 67
+        width: 67
+        height: 117
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a416251c81d6445b0800000000000000
+      internalID: -5385059301338226358
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bully - Rango-walk_21
+      rect:
+        serializedVersion: 2
+        x: 351
+        y: 64
+        width: 60
+        height: 118
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d9c881fd0dfe08f40800000000000000
+      internalID: 5728842406390434973
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bully - Rango-walk_22
+      rect:
+        serializedVersion: 2
+        x: 615
+        y: 65
+        width: 52
+        height: 118
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fc8bf4391b36748d0800000000000000
+      internalID: -2862209423838824241
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bully - Rango-walk_23
+      rect:
+        serializedVersion: 2
+        x: 868
+        y: 66
+        width: 55
+        height: 118
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 547217bc96aca90d0800000000000000
+      internalID: -3415194811673532603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bully - Rango-walk_24
+      rect:
+        serializedVersion: 2
+        x: 1118
+        y: 67
+        width: 67
+        height: 117
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3973e31cb5fa7bb50800000000000000
+      internalID: 6608943786808457107
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Bully - Rango-walk_0: -8060628485239449650
+      Bully - Rango-walk_1: -7841032518755026888
+      Bully - Rango-walk_10: 8024590627419888776
+      Bully - Rango-walk_11: 7745366604949476210
+      Bully - Rango-walk_12: 2979488159055515062
+      Bully - Rango-walk_13: 3329023365843545844
+      Bully - Rango-walk_14: -1601443683452971151
+      Bully - Rango-walk_15: -263518088165881761
+      Bully - Rango-walk_16: -3492678937250666182
+      Bully - Rango-walk_17: -8935266562829223316
+      Bully - Rango-walk_18: -3032943685267510493
+      Bully - Rango-walk_19: 2423462251396251717
+      Bully - Rango-walk_2: -5597348269354188028
+      Bully - Rango-walk_20: -5385059301338226358
+      Bully - Rango-walk_21: 5728842406390434973
+      Bully - Rango-walk_22: -2862209423838824241
+      Bully - Rango-walk_23: -3415194811673532603
+      Bully - Rango-walk_24: 6608943786808457107
+      Bully - Rango-walk_3: 1713046313653532033
+      Bully - Rango-walk_4: 6086768099697352663
+      Bully - Rango-walk_5: -1320707169167911657
+      Bully - Rango-walk_6: -7478127463558523880
+      Bully - Rango-walk_7: -2185113849553443325
+      Bully - Rango-walk_8: -5327676653785679379
+      Bully - Rango-walk_9: 4931809572763031982
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
