@@ -1,0 +1,767 @@
+fileFormatVersion: 2
+guid: dec101f5c374d7647b41b5bde187df12
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3634888713717326004
+    second: Bully-Attack_0
+  - first:
+      213: 4012211310906515963
+    second: Bully-Attack_1
+  - first:
+      213: -5190539875116037042
+    second: Bully-Attack_2
+  - first:
+      213: 6217397676839169613
+    second: Bully-Attack_3
+  - first:
+      213: -2293812841737912921
+    second: Bully-Attack_4
+  - first:
+      213: 4919364761774338365
+    second: Bully-Attack_5
+  - first:
+      213: -6529660301250369460
+    second: Bully-Attack_6
+  - first:
+      213: 4862773905560229115
+    second: Bully-Attack_7
+  - first:
+      213: -5095235862072560209
+    second: Bully-Attack_8
+  - first:
+      213: -8884710558216343654
+    second: Bully-Attack_9
+  - first:
+      213: -3266210634423468764
+    second: Bully-Attack_10
+  - first:
+      213: -5714034469510721511
+    second: Bully-Attack_11
+  - first:
+      213: 178801293567083993
+    second: Bully-Attack_12
+  - first:
+      213: 2280511628817404948
+    second: Bully-Attack_13
+  - first:
+      213: 2144189744088356673
+    second: Bully-Attack_14
+  - first:
+      213: 8737216978558549306
+    second: Bully-Attack_15
+  - first:
+      213: 401258001121869299
+    second: Bully-Attack_16
+  - first:
+      213: 3744942913633500962
+    second: Bully-Attack_17
+  - first:
+      213: -4861685250532210876
+    second: Bully-Attack_18
+  - first:
+      213: -2905464757716629962
+    second: Bully-Attack_19
+  - first:
+      213: 3758594060723751738
+    second: Bully-Attack_20
+  - first:
+      213: 7941611935228612944
+    second: Bully-Attack_21
+  - first:
+      213: -4415195183040642284
+    second: Bully-Attack_22
+  - first:
+      213: 7220611178490507368
+    second: Bully-Attack_23
+  - first:
+      213: -7507399351828822309
+    second: Bully-Attack_24
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Bully-Attack_0
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 1088
+        width: 115
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4b0a233d608b17230800000000000000
+      internalID: 3634888713717326004
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bully-Attack_1
+      rect:
+        serializedVersion: 2
+        x: 342
+        y: 1088
+        width: 117
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf1236efdec3ea730800000000000000
+      internalID: 4012211310906515963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bully-Attack_2
+      rect:
+        serializedVersion: 2
+        x: 598
+        y: 1088
+        width: 117
+        height: 127
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e4c4537fb7f77f7b0800000000000000
+      internalID: -5190539875116037042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bully-Attack_3
+      rect:
+        serializedVersion: 2
+        x: 849
+        y: 1088
+        width: 111
+        height: 127
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d4e6653fe32a84650800000000000000
+      internalID: 6217397676839169613
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bully-Attack_4
+      rect:
+        serializedVersion: 2
+        x: 1102
+        y: 1088
+        width: 101
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7ad7bf2af5dba20e0800000000000000
+      internalID: -2293812841737912921
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bully-Attack_5
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 832
+        width: 128
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d31322adf28154440800000000000000
+      internalID: 4919364761774338365
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bully-Attack_6
+      rect:
+        serializedVersion: 2
+        x: 307
+        y: 832
+        width: 101
+        height: 136
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c4860083d8cf165a0800000000000000
+      internalID: -6529660301250369460
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bully-Attack_7
+      rect:
+        serializedVersion: 2
+        x: 588
+        y: 832
+        width: 76
+        height: 145
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf4d4ff5a1b0c7340800000000000000
+      internalID: 4862773905560229115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bully-Attack_8
+      rect:
+        serializedVersion: 2
+        x: 844
+        y: 832
+        width: 76
+        height: 145
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa5755aaaf51a49b0800000000000000
+      internalID: -5095235862072560209
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bully-Attack_9
+      rect:
+        serializedVersion: 2
+        x: 1076
+        y: 832
+        width: 100
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a9f2a5d02da23b480800000000000000
+      internalID: -8884710558216343654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bully-Attack_10
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 576
+        width: 125
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 42df59dabb61ca2d0800000000000000
+      internalID: -3266210634423468764
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bully-Attack_11
+      rect:
+        serializedVersion: 2
+        x: 298
+        y: 574
+        width: 114
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 910d97a9ceba3b0b0800000000000000
+      internalID: -5714034469510721511
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bully-Attack_12
+      rect:
+        serializedVersion: 2
+        x: 555
+        y: 574
+        width: 115
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d5427444da3b7200800000000000000
+      internalID: 178801293567083993
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bully-Attack_13
+      rect:
+        serializedVersion: 2
+        x: 811
+        y: 574
+        width: 114
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4141fc56e3106af10800000000000000
+      internalID: 2280511628817404948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bully-Attack_14
+      rect:
+        serializedVersion: 2
+        x: 1067
+        y: 574
+        width: 115
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1471c6b3631b1cd10800000000000000
+      internalID: 2144189744088356673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bully-Attack_15
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 318
+        width: 115
+        height: 134
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a3d7e7cdc84d04970800000000000000
+      internalID: 8737216978558549306
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bully-Attack_16
+      rect:
+        serializedVersion: 2
+        x: 299
+        y: 318
+        width: 115
+        height: 135
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3fdf62ca60e819500800000000000000
+      internalID: 401258001121869299
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bully-Attack_17
+      rect:
+        serializedVersion: 2
+        x: 555
+        y: 318
+        width: 115
+        height: 135
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 22fbd370db5b8f330800000000000000
+      internalID: 3744942913633500962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bully-Attack_18
+      rect:
+        serializedVersion: 2
+        x: 811
+        y: 318
+        width: 115
+        height: 136
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4478540e503d78cb0800000000000000
+      internalID: -4861685250532210876
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bully-Attack_19
+      rect:
+        serializedVersion: 2
+        x: 1067
+        y: 318
+        width: 114
+        height: 136
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 63642e85237bda7d0800000000000000
+      internalID: -2905464757716629962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bully-Attack_20
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 62
+        width: 114
+        height: 136
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a3b05546265392430800000000000000
+      internalID: 3758594060723751738
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bully-Attack_21
+      rect:
+        serializedVersion: 2
+        x: 299
+        y: 62
+        width: 114
+        height: 136
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 051dd478af5463e60800000000000000
+      internalID: 7941611935228612944
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bully-Attack_22
+      rect:
+        serializedVersion: 2
+        x: 555
+        y: 62
+        width: 114
+        height: 136
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 413c8dcaf531ab2c0800000000000000
+      internalID: -4415195183040642284
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bully-Attack_23
+      rect:
+        serializedVersion: 2
+        x: 811
+        y: 62
+        width: 114
+        height: 136
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 86034234c93c43460800000000000000
+      internalID: 7220611178490507368
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bully-Attack_24
+      rect:
+        serializedVersion: 2
+        x: 1067
+        y: 62
+        width: 114
+        height: 136
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd6ce3fb01c50d790800000000000000
+      internalID: -7507399351828822309
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Bully-Attack_0: 3634888713717326004
+      Bully-Attack_1: 4012211310906515963
+      Bully-Attack_10: -3266210634423468764
+      Bully-Attack_11: -5714034469510721511
+      Bully-Attack_12: 178801293567083993
+      Bully-Attack_13: 2280511628817404948
+      Bully-Attack_14: 2144189744088356673
+      Bully-Attack_15: 8737216978558549306
+      Bully-Attack_16: 401258001121869299
+      Bully-Attack_17: 3744942913633500962
+      Bully-Attack_18: -4861685250532210876
+      Bully-Attack_19: -2905464757716629962
+      Bully-Attack_2: -5190539875116037042
+      Bully-Attack_20: 3758594060723751738
+      Bully-Attack_21: 7941611935228612944
+      Bully-Attack_22: -4415195183040642284
+      Bully-Attack_23: 7220611178490507368
+      Bully-Attack_24: -7507399351828822309
+      Bully-Attack_3: 6217397676839169613
+      Bully-Attack_4: -2293812841737912921
+      Bully-Attack_5: 4919364761774338365
+      Bully-Attack_6: -6529660301250369460
+      Bully-Attack_7: 4862773905560229115
+      Bully-Attack_8: -5095235862072560209
+      Bully-Attack_9: -8884710558216343654
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
