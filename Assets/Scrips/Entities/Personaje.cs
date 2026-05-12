@@ -10,7 +10,6 @@ namespace SafeRun.Entities
 
         protected Rigidbody2D _rb;
         protected Animator _animator;
-        protected SpriteRenderer _spriteRenderer;
 
         // Guarda la última dirección para el Idle
         protected Vector2 _ultimaDireccion = Vector2.down;
@@ -21,7 +20,6 @@ namespace SafeRun.Entities
             base.Start();
             _rb = GetComponent<Rigidbody2D>();
             _animator = GetComponent<Animator>();
-            _spriteRenderer = GetComponent<SpriteRenderer>();
         }
 
         public override void Mover(Vector2 direccion)
@@ -69,10 +67,6 @@ namespace SafeRun.Entities
                 }
             }
 
-            if (_spriteRenderer != null && direccion.x != 0f)
-            {
-                _spriteRenderer.flipX = direccion.x < 0f;
-            }
         }
 
         public override void RecibirDanio(float cantidad)

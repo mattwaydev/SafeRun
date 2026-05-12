@@ -56,7 +56,7 @@ MonoBehaviour:
   agresividad: 1
   rangoDeteccion: 5
   objetivoInicial: {fileID: 0}
-  rangoAtaque: 1.5
+  rangoAtaque: 0.37
   danioAtaque: 15
   cooldownAtaque: 2
 --- !u!50 &4324902452740756751
@@ -123,8 +123,8 @@ BoxCollider2D:
   m_Offset: {x: -0.00067666173, y: 0.00092568994}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.63, y: 2.67}
+    pivot: {x: 0.50488734, y: 0.46578836}
+    oldSize: {x: 1.3715847, y: 1.3770492}
     newSize: {x: 0.16, y: 0.16}
     adaptiveTilingThreshold: 0.5
     drawMode: 0

@@ -8,6 +8,7 @@ namespace SafeRun.Entities
 
     public class Enemigo : Personaje
     {
+        private SpriteRenderer _spriteRenderer;
         [SerializeField] protected TipoAcoso tipoAcoso;
         [SerializeField] protected float agresividad = 1f;
         [SerializeField] protected float rangoDeteccion = 5f;
@@ -28,6 +29,7 @@ namespace SafeRun.Entities
         protected override void Start()
         {
             base.Start();
+            _spriteRenderer = GetComponent<SpriteRenderer>();
             _timerAtaque = cooldownAtaque;
             if (objetivoInicial != null)
             {
@@ -103,6 +105,16 @@ namespace SafeRun.Entities
             if (_objetivoIA == null) return;
             Vector2 dir = (_objetivoIA.position - transform.position).normalized;
             Mover(dir * agresividad);
+        }
+
+        public override void Mover(Vector2 direccion)
+        {
+            base.Mover(direccion);
+
+            if (_spriteRenderer != null && direccion.x != 0f)
+            {
+                _spriteRenderer.flipX = direccion.x < 0f;
+            }
         }
 
         public override void Atacar()
