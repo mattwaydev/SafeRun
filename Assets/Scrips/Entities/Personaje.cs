@@ -33,20 +33,37 @@ namespace SafeRun.Entities
             if (_animator != null)
             {
                 bool isWalking = direccion.magnitude > 0.1f;
-                _animator.SetBool("isWalking", isWalking);
+                if (HasParameter("isWalking"))
+                    _animator.SetBool("isWalking", isWalking);
+                else if (HasParameter("IsWalking"))
+                    _animator.SetBool("IsWalking", isWalking);
 
                 if (isWalking)
                 {
                     // Guardar última dirección para el Idle
                     _ultimaDireccion = direccion;
-                    _animator.SetFloat("moveX", direccion.x);
-                    _animator.SetFloat("moveY", direccion.y);
+                    if (HasParameter("moveX"))
+                        _animator.SetFloat("moveX", direccion.x);
+                    else if (HasParameter("MoveX"))
+                        _animator.SetFloat("MoveX", direccion.x);
+
+                    if (HasParameter("moveY"))
+                        _animator.SetFloat("moveY", direccion.y);
+                    else if (HasParameter("MoveY"))
+                        _animator.SetFloat("MoveY", direccion.y);
                 }
                 else
                 {
                     // Idle apunta a la última dirección que caminó
-                    _animator.SetFloat("moveX", _ultimaDireccion.x);
-                    _animator.SetFloat("moveY", _ultimaDireccion.y);
+                    if (HasParameter("moveX"))
+                        _animator.SetFloat("moveX", _ultimaDireccion.x);
+                    else if (HasParameter("MoveX"))
+                        _animator.SetFloat("MoveX", _ultimaDireccion.x);
+
+                    if (HasParameter("moveY"))
+                        _animator.SetFloat("moveY", _ultimaDireccion.y);
+                    else if (HasParameter("MoveY"))
+                        _animator.SetFloat("MoveY", _ultimaDireccion.y);
                 }
             }
         }
@@ -79,12 +96,34 @@ namespace SafeRun.Entities
 
             if (_animator != null)
             {
-                _animator.SetFloat("moveX", _ultimaDireccion.x);
-                _animator.SetFloat("moveY", _ultimaDireccion.y);
-                _animator.SetBool("isDead", true);
+                if (HasParameter("moveX"))
+                    _animator.SetFloat("moveX", _ultimaDireccion.x);
+                else if (HasParameter("MoveX"))
+                    _animator.SetFloat("MoveX", _ultimaDireccion.x);
+
+                if (HasParameter("moveY"))
+                    _animator.SetFloat("moveY", _ultimaDireccion.y);
+                else if (HasParameter("MoveY"))
+                    _animator.SetFloat("MoveY", _ultimaDireccion.y);
+
+                if (HasParameter("isDead"))
+                    _animator.SetBool("isDead", true);
+                else if (HasParameter("IsDead"))
+                    _animator.SetBool("IsDead", true);
             }
 
             Destroy(gameObject, 1f);
+        }
+
+        protected bool HasParameter(string name)
+        {
+            if (_animator == null) return false;
+            var parameters = _animator.parameters;
+            for (int i = 0; i < parameters.Length; i++)
+            {
+                if (parameters[i].name == name) return true;
+            }
+            return false;
         }
     }
 }

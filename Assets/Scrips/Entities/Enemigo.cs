@@ -80,6 +80,7 @@ namespace SafeRun.Entities
 
             if (dist < rangoAtaque)
             {
+                Mover(Vector2.zero);
                 _timerAtaque -= Time.deltaTime;
                 if (_timerAtaque <= 0f)
                 {
@@ -101,12 +102,19 @@ namespace SafeRun.Entities
         {
             if (_objetivoIA == null) return;
             Vector2 dir = (_objetivoIA.position - transform.position).normalized;
-            _rb.linearVelocity = dir * velocidad * agresividad;
+            Mover(dir * agresividad);
         }
 
         public override void Atacar()
         {
             if (_objetivoIA == null) return;
+            if (_animator != null)
+            {
+                if (HasParameter("attack"))
+                    _animator.SetTrigger("attack");
+                else if (HasParameter("Attack"))
+                    _animator.SetTrigger("Attack");
+            }
             Jugador jugador = _objetivoIA.GetComponent<Jugador>();
             if (jugador != null)
             {
