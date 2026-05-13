@@ -31,9 +31,10 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.294, y: -1.268, z: 0}
-  m_LocalScale: {x: 0.3736353, y: 0.38631687, z: 1}
+  m_LocalScale: {x: 1.2, y: 1.2, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 6047735829166408095}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3806418567775021207
@@ -52,13 +53,19 @@ MonoBehaviour:
   vidaMaxima: 100
   velocidad: 3
   escudo: 0
-  tipoAcoso: 1
+  tipoAcoso: 0
   agresividad: 1
-  rangoDeteccion: 5
+  rangoDeteccion: 8
   objetivoInicial: {fileID: 0}
   rangoAtaque: 0.37
   danioAtaque: 15
-  cooldownAtaque: 2
+  cooldownAtaque: 0.5
+  balaPrefab: {fileID: -8026609885222327751, guid: c521b3c2b8e746d4ba923ba8ba433066, type: 3}
+  puntoDisparo: {fileID: 6047735829166408095}
+  rangoAtaqueDistancia: 6
+  tiempoPreparacion: 0.7
+  danioBala: 10
+  errorPunteria: 0
 --- !u!50 &6450846267517448367
 Rigidbody2D:
   serializedVersion: 5
@@ -213,3 +220,34 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!1 &6983829425728609418
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6047735829166408095}
+  m_Layer: 0
+  m_Name: FirePoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6047735829166408095
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6983829425728609418}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.071, y: 0.007, z: 0}
+  m_LocalScale: {x: 2.6764069, y: 2.5885487, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2079644312870863605}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

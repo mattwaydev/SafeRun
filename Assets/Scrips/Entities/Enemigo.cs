@@ -14,10 +14,16 @@ namespace SafeRun.Entities
         [SerializeField] protected float rangoDeteccion = 5f;
         [SerializeField] protected Transform objetivoInicial;
 
-        [Header("Combate")]
         [SerializeField] protected float rangoAtaque = 1.5f;
         [SerializeField] protected float danioAtaque = 15f;
         [SerializeField] protected float cooldownAtaque = 2f;
+
+        [SerializeField] protected BalaEnemigo balaPrefab;
+        [SerializeField] protected Transform puntoDisparo;
+        [SerializeField] protected float rangoAtaqueDistancia = 6f;
+        [SerializeField] protected float tiempoPreparacion = 0.7f;
+        [SerializeField] protected float danioBala = 10f;
+        [SerializeField] protected float errorPunteria = 8f;
 
         protected Transform _objetivoIA;
         protected float _timerAtaque;
@@ -25,6 +31,10 @@ namespace SafeRun.Entities
         protected float _tiempoConfusion;
         protected float _danioConfusionPorSegundo;
         protected bool _jugadorDetectado;
+
+        protected bool _preparandoDisparo;
+        protected float _timerPreparacion;
+        protected Vector2 _direccionDisparo;
 
         protected override void Start()
         {
@@ -63,6 +73,19 @@ namespace SafeRun.Entities
                 return;
             }
 
+            if (_preparandoDisparo)
+            {
+                Mover(Vector2.zero);
+                _timerPreparacion -= Time.deltaTime;
+                if (_timerPreparacion <= 0f)
+                {
+                    DispararBala();
+                    _preparandoDisparo = false;
+                    _timerAtaque = cooldownAtaque;
+                }
+                return;
+            }
+
             float dist = Vector2.Distance(transform.position, _objetivoIA.position);
 
             if (!_jugadorDetectado)
@@ -80,14 +103,24 @@ namespace SafeRun.Entities
                 }
             }
 
-            if (dist < rangoAtaque)
+            bool aDistancia = tipoAcoso == TipoAcoso.Ciberacoso && balaPrefab != null;
+            float rangoEfectivo = aDistancia ? rangoAtaqueDistancia : rangoAtaque;
+
+            if (dist < rangoEfectivo)
             {
                 Mover(Vector2.zero);
                 _timerAtaque -= Time.deltaTime;
                 if (_timerAtaque <= 0f)
                 {
-                    Atacar();
-                    _timerAtaque = cooldownAtaque;
+                    if (aDistancia)
+                    {
+                        IniciarPreparacionDisparo();
+                    }
+                    else
+                    {
+                        Atacar();
+                        _timerAtaque = cooldownAtaque;
+                    }
                 }
             }
             else if (dist < rangoDeteccion)
@@ -141,11 +174,98 @@ namespace SafeRun.Entities
             Debug.Log($"[SafeRun] {nombre} lanza mensaje de tipo {tipoAcoso}");
         }
 
+        protected virtual void IniciarPreparacionDisparo()
+        {
+            if (_objetivoIA == null) return;
+
+            Vector2 origen = puntoDisparo != null ? (Vector2)puntoDisparo.position : (Vector2)transform.position;
+            Vector2 posObjetivo = (Vector2)_objetivoIA.position;
+
+            Vector2 velObjetivo = Vector2.zero;
+            var rbObj = _objetivoIA.GetComponent<Rigidbody2D>();
+            if (rbObj != null) velObjetivo = rbObj.linearVelocity;
+
+            float velBala = balaPrefab != null ? balaPrefab.Velocidad : 8f;
+
+            _direccionDisparo = CalcularInterseccion(origen, posObjetivo, velObjetivo, velBala);
+
+            if (_direccionDisparo.sqrMagnitude < 0.0001f)
+                _direccionDisparo = _ultimaDireccion;
+
+            if (errorPunteria > 0f)
+            {
+                float jitter = Random.Range(-errorPunteria, errorPunteria);
+                _direccionDisparo = (Vector2)(Quaternion.Euler(0f, 0f, jitter) * _direccionDisparo);
+            }
+
+            _preparandoDisparo = true;
+            _timerPreparacion = tiempoPreparacion;
+
+            if (_spriteRenderer != null && Mathf.Abs(_direccionDisparo.x) > 0.01f)
+                _spriteRenderer.flipX = _direccionDisparo.x < 0f;
+
+            if (_animator != null)
+            {
+                if (HasParameter("attack"))
+                    _animator.SetTrigger("attack");
+                else if (HasParameter("Attack"))
+                    _animator.SetTrigger("Attack");
+            }
+
+            Debug.Log($"[SafeRun] {nombre} prepara ataque a distancia ({tiempoPreparacion}s)");
+        }
+
+        protected static Vector2 CalcularInterseccion(Vector2 origen, Vector2 posObj, Vector2 velObj, float balaSpeed)
+        {
+            Vector2 delta = posObj - origen;
+            float a = Vector2.Dot(velObj, velObj) - balaSpeed * balaSpeed;
+            float b = 2f * Vector2.Dot(delta, velObj);
+            float c = Vector2.Dot(delta, delta);
+
+            float t;
+            if (Mathf.Abs(a) < 0.0001f)
+            {
+                if (Mathf.Abs(b) < 0.0001f) return delta.normalized;
+                t = -c / b;
+            }
+            else
+            {
+                float disc = b * b - 4f * a * c;
+                if (disc < 0f) return delta.normalized; 
+                float sqrt = Mathf.Sqrt(disc);
+                float t1 = (-b - sqrt) / (2f * a);
+                float t2 = (-b + sqrt) / (2f * a);
+                t = Mathf.Min(t1, t2);
+                if (t < 0f) t = Mathf.Max(t1, t2);
+            }
+
+            if (t <= 0f) return delta.normalized;
+
+            Vector2 puntoImpacto = posObj + velObj * t;
+            Vector2 dir = puntoImpacto - origen;
+            return dir.sqrMagnitude > 0.0001f ? dir.normalized : delta.normalized;
+        }
+
+        protected virtual void DispararBala()
+        {
+            if (balaPrefab == null) return;
+
+            Vector2 origen = puntoDisparo != null ? (Vector2)puntoDisparo.position : (Vector2)transform.position;
+            float dano = danioBala > 0f ? danioBala : danioAtaque;
+
+            BalaEnemigo bala = Instantiate(balaPrefab, origen, Quaternion.identity);
+            bala.Configurar(_direccionDisparo, dano, gameObject);
+
+            LanzarMensaje();
+        }
+
         public virtual void ActivarConfusion(float duracion, float danoPorSegundo)
         {
             _confundido = true;
             _tiempoConfusion = duracion;
             _danioConfusionPorSegundo = danoPorSegundo;
+            _preparandoDisparo = false;
+            _timerPreparacion = 0f;
             Debug.Log($"[SafeRun] {nombre} queda confundido por {duracion}s");
         }
 
