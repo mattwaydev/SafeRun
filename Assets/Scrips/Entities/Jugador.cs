@@ -15,6 +15,7 @@ namespace SafeRun.Entities
         [SerializeField] private string skinActual = "default";
         [SerializeField] private GestorJuego gestorJuego;
         [SerializeField] private InventarioArmas inventario;
+        [SerializeField] private DamageIndicator damageIndicator;
 
         [Header("Colision")]
         [SerializeField] private Vector2 colliderSize = new Vector2(0.11f, 0.18f);
@@ -57,6 +58,9 @@ namespace SafeRun.Entities
         protected override void Start()
         {
             base.Start();
+
+            if (damageIndicator == null)
+                damageIndicator = GetComponent<DamageIndicator>();
 
             var sr = GetComponent<SpriteRenderer>();
             if (sr != null)
@@ -304,6 +308,20 @@ namespace SafeRun.Entities
 
         public void CambiarSkin(string nuevaSkin) => skinActual = nuevaSkin;
         public float Empatia => empatia;
+
+        public override void RecibirDanio(float cantidad)
+        {
+            float vidaAntes = _vidaActual;
+            base.RecibirDanio(cantidad);
+
+            if (_vidaActual < vidaAntes)
+            {
+                if (damageIndicator == null)
+                    damageIndicator = GetComponent<DamageIndicator>();
+
+                damageIndicator?.Trigger();
+            }
+        }
 
         private void OnCollisionStay2D(Collision2D col)
         {
