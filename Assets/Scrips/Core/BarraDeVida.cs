@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using SafeRun.Entities;
 public class BarraDeVida : MonoBehaviour
@@ -20,23 +21,27 @@ public class BarraDeVida : MonoBehaviour
         if (barraRect == null)
             barraRect = GetComponent<RectTransform>();
 
-        if (barraRect == null) return;
-
-        if (forzarEscalaUno)
-            barraRect.localScale = Vector3.one;
-
-        if (ajustarAnclaje)
+        if (barraRect != null)
         {
-            barraRect.anchorMin = anclaMin;
-            barraRect.anchorMax = anclaMax;
-            barraRect.pivot = pivote;
-            barraRect.anchoredPosition = posicion;
+            if (forzarEscalaUno)
+                barraRect.localScale = Vector3.one;
+
+            if (ajustarAnclaje)
+            {
+                barraRect.anchorMin = anclaMin;
+                barraRect.anchorMax = anclaMax;
+                barraRect.pivot = pivote;
+                barraRect.anchoredPosition = posicion;
+            }
         }
+
+        DontDestroyOnLoad(gameObject);
+        SceneManager.sceneLoaded += OnSceneLoaded;
+        VincularJugador(BuscarJugadorEnEscena());
     }
     private void OnEnable()
     {
-        if (jugador != null)
-            jugador.VidaCambiada += ActualizarBarra;
+        VincularJugador(jugador ?? BuscarJugadorEnEscena());
     }
 
     private void OnDisable()
@@ -45,10 +50,41 @@ public class BarraDeVida : MonoBehaviour
             jugador.VidaCambiada -= ActualizarBarra;
     }
 
+    private void OnDestroy()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+        if (jugador != null)
+            jugador.VidaCambiada -= ActualizarBarra;
+    }
+
     private void Start()
     {
         if (jugador != null)
             ActualizarBarra(jugador.VidaActual, jugador.VidaMaxima);
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        VincularJugador(BuscarJugadorEnEscena());
+    }
+
+    private Jugador BuscarJugadorEnEscena()
+    {
+        return FindObjectOfType<Jugador>();
+    }
+
+    private void VincularJugador(Jugador nuevoJugador)
+    {
+        if (jugador != null)
+            jugador.VidaCambiada -= ActualizarBarra;
+
+        jugador = nuevoJugador;
+
+        if (jugador == null)
+            return;
+
+        jugador.VidaCambiada += ActualizarBarra;
+        ActualizarBarra(jugador.VidaActual, jugador.VidaMaxima);
     }
 
     private void ActualizarBarra(float vidaActual, float vidaMaxima)
