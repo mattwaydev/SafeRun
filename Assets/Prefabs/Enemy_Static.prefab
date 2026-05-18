@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4324902452740756751}
   - component: {fileID: 8157072120303828756}
   - component: {fileID: 936023304193342657}
-  - component: {fileID: 8621784579976378650}
+  - component: {fileID: 952074617807515269}
   m_Layer: 0
   m_Name: Enemy_Static
   m_TagString: Untagged
@@ -31,8 +31,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.2526, y: -0.4082, z: 0}
-  m_LocalScale: {x: 0.3736353, y: 0.38631687, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.1, y: 1.1, z: 1.1}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -59,6 +59,12 @@ MonoBehaviour:
   rangoAtaque: 0.37
   danioAtaque: 15
   cooldownAtaque: 2
+  balaPrefab: {fileID: 0}
+  puntoDisparo: {fileID: 0}
+  rangoAtaqueDistancia: 6
+  tiempoPreparacion: 0.7
+  danioBala: 10
+  errorPunteria: 8
 --- !u!50 &4324902452740756751
 Rigidbody2D:
   serializedVersion: 5
@@ -191,7 +197,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!95 &8621784579976378650
+--- !u!95 &952074617807515269
 Animator:
   serializedVersion: 7
   m_ObjectHideFlags: 0
@@ -201,7 +207,7 @@ Animator:
   m_GameObject: {fileID: 2498352126671488630}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 91551840fdb392a4c8cd50b522f58295, type: 2}
+  m_Controller: {fileID: 9100000, guid: 7064a90ddaa15ff4493547ed48e2c0f0, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

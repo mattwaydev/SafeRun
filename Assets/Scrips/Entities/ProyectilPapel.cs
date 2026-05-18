@@ -7,6 +7,8 @@ namespace SafeRun.Entities
         [SerializeField] private float danio = 25f;
         [SerializeField] private float velocidad = 10f;
         [SerializeField] private float tiempoVida = 3f;
+        [SerializeField] private bool rotarHaciaDireccion = true;
+        [SerializeField] private float offsetAngulo = 0f;
 
         private Vector2 _direccion;
 
@@ -23,6 +25,13 @@ namespace SafeRun.Entities
             if (_direccion == Vector2.zero)
                 _direccion = Vector2.up;
             danio = danioPersonalizado > 0f ? danioPersonalizado : danio;
+
+            if (rotarHaciaDireccion)
+            {
+                float ang = Mathf.Atan2(_direccion.y, _direccion.x) * Mathf.Rad2Deg + offsetAngulo;
+                transform.rotation = Quaternion.Euler(0f, 0f, ang);
+            }
+
             Destroy(gameObject, tiempoVida);
         }
 
