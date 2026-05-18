@@ -323,12 +323,6 @@ namespace SafeRun.Entities
             }
         }
 
-        private void OnCollisionStay2D(Collision2D col)
-        {
-            if (col.gameObject.GetComponent<Enemigo>() != null)
-                RecibirDanio(10f * Time.deltaTime);
-        }
-
         public void OnMuerteTerminada()
         {
             Debug.Log("[SafeRun] Jugador ha muerto.");

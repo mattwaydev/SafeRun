@@ -169,6 +169,52 @@ namespace SafeRun.Entities
             LanzarMensaje();
         }
 
+        private void OnCollisionEnter2D(Collision2D collision)
+        {
+            Jugador jugador = collision.gameObject.GetComponent<Jugador>();
+            if (jugador == null)
+                jugador = collision.gameObject.GetComponentInParent<Jugador>();
+
+            if (jugador == null) return;
+
+            _objetivoIA = jugador.transform;
+            _jugadorDetectado = true;
+            _timerAtaque = 0f;
+        }
+
+        private void OnCollisionStay2D(Collision2D collision)
+        {
+            Jugador jugador = collision.gameObject.GetComponent<Jugador>();
+            if (jugador == null)
+                jugador = collision.gameObject.GetComponentInParent<Jugador>();
+
+            if (jugador == null) return;
+
+            if (_objetivoIA == null)
+                _objetivoIA = jugador.transform;
+
+            _jugadorDetectado = true;
+
+            bool aDistancia = tipoAcoso == TipoAcoso.Ciberacoso && balaPrefab != null;
+            float rangoEfectivo = aDistancia ? rangoAtaqueDistancia : rangoAtaque;
+            float dist = Vector2.Distance(transform.position, jugador.transform.position);
+
+            if (dist <= rangoEfectivo)
+                return;
+
+            _timerAtaque -= Time.deltaTime;
+            if (_timerAtaque <= 0f)
+            {
+                if (aDistancia)
+                    IniciarPreparacionDisparo();
+                else
+                    Atacar();
+
+                _timerAtaque = cooldownAtaque;
+            }
+        }
+
+
         public virtual void LanzarMensaje()
         {
             Debug.Log($"[SafeRun] {nombre} lanza mensaje de tipo {tipoAcoso}");

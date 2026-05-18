@@ -20,6 +20,8 @@ namespace SafeRun.Entities
             base.Start();
             _rb = GetComponent<Rigidbody2D>();
             _animator = GetComponent<Animator>();
+            if (_animator == null)
+                _animator = GetComponentInChildren<Animator>();
         }
 
         public override void Mover(Vector2 direccion)
