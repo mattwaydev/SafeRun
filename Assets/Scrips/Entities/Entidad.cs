@@ -29,6 +29,13 @@ namespace SafeRun.Entities
             if (_vidaActual <= 0) Morir();
         }
 
+        public virtual void Sanar(float cantidad)
+        {
+            if (!EstaVivo || cantidad <= 0f) return;
+            _vidaActual = Mathf.Min(_vidaActual + cantidad, vidaMaxima);
+            NotificarVida();
+        }
+
         protected virtual void Morir()
         {
             Debug.Log($"[SafeRun] {nombre} fue derrotado.");
