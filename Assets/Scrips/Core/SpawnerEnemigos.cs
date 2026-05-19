@@ -25,6 +25,11 @@ namespace SafeRun.Core
         [SerializeField] private string[] nombresSuelo = { "piso", "suelo", "Piso", "Suelo" };
         [SerializeField, Min(0f)] private float distanciaMinJugador = 8f;
 
+        [Header("Separacion entre enemigos")]
+        [SerializeField, Min(0f)] private float distanciaMinEntreEnemigos = 3f;
+        [Tooltip("Si tras agotar los intentos no se cumple la separacion, se acepta la mejor posicion encontrada.")]
+        [SerializeField] private bool relajarSiNoHayHueco = true;
+
         [Header("Fallback (sin tilemap)")]
         [SerializeField] private Transform centro;
         [SerializeField] private bool usarJugadorComoCentro = true;
@@ -37,7 +42,9 @@ namespace SafeRun.Core
         [Header("Comportamiento")]
         [SerializeField] private bool persistirEntreEscenas = true;
         [SerializeField] private bool spawnearAlIniciar = true;
-        [Tooltip("0 = se deriva del nombre de escena + numero de visita")]
+        [Tooltip("Si esta activo, cada partida da spawns diferentes. Si esta desactivo, usa 'semilla' + visita para reproducibilidad.")]
+        [SerializeField] private bool semillaAleatoria = true;
+        [Tooltip("Solo se usa si 'semillaAleatoria' esta desactivo. 0 = se deriva del nombre de escena + numero de visita")]
         [SerializeField] private int semilla = 0;
         [SerializeField] private string[] escenasExcluidas =
         {
@@ -52,6 +59,7 @@ namespace SafeRun.Core
 
         private static SpawnerEnemigos _instancia;
         private static readonly Dictionary<string, int> _visitas = new();
+        private int[] _indicesBaraja;
 
         private void Awake()
         {
@@ -101,16 +109,36 @@ namespace SafeRun.Core
             if (!_visitas.TryGetValue(escena, out int visita)) visita = 0;
             _visitas[escena] = visita + 1;
 
-            int seed = semilla != 0 ? semilla + visita : (escena.GetHashCode() ^ (visita * 73856093));
-            var rnd = new System.Random(seed);
+            System.Random rnd;
+            if (semillaAleatoria)
+            {
+                rnd = new System.Random();
+            }
+            else
+            {
+                int seed = semilla != 0 ? semilla + visita : (escena.GetHashCode() ^ (visita * 73856093));
+                rnd = new System.Random(seed);
+            }
 
             int nRango = NextInclusive(rnd, minRango, maxRango);
             int nStatic = NextInclusive(rnd, minStatic, maxStatic);
 
             List<Vector3> celdasSuelo = usarSueloTilemap ? RecolectarCeldasSuelo() : null;
+            List<Vector3> ocupadas = RecolectarPosicionesEnemigosExistentes();
 
-            for (int i = 0; i < nRango; i++) SpawnearUno(prefabRango, rnd, celdasSuelo);
-            for (int i = 0; i < nStatic; i++) SpawnearUno(prefabStatic, rnd, celdasSuelo);
+            for (int i = 0; i < nRango; i++) SpawnearUno(prefabRango, rnd, celdasSuelo, ocupadas);
+            for (int i = 0; i < nStatic; i++) SpawnearUno(prefabStatic, rnd, celdasSuelo, ocupadas);
+        }
+
+        private List<Vector3> RecolectarPosicionesEnemigosExistentes()
+        {
+            var lista = new List<Vector3>();
+            var enemigos = FindObjectsByType<Enemigo>(FindObjectsSortMode.None);
+            for (int i = 0; i < enemigos.Length; i++)
+            {
+                if (enemigos[i] != null) lista.Add(enemigos[i].transform.position);
+            }
+            return lista;
         }
 
         private List<Vector3> RecolectarCeldasSuelo()
@@ -146,7 +174,7 @@ namespace SafeRun.Core
             return null;
         }
 
-        private void SpawnearUno(Enemigo prefab, System.Random rnd, List<Vector3> celdasSuelo)
+        private void SpawnearUno(Enemigo prefab, System.Random rnd, List<Vector3> celdasSuelo, List<Vector3> ocupadas)
         {
             if (prefab == null)
             {
@@ -158,14 +186,43 @@ namespace SafeRun.Core
             var jug = FindAnyObjectByType<Jugador>();
             if (jug != null) jugador = jug.transform;
 
+            Vector3 mejorPos = Vector3.zero;
+            float mejorSeparacion = -1f;
+            bool hayMejor = false;
+
             if (celdasSuelo != null && celdasSuelo.Count > 0)
             {
-                for (int intento = 0; intento < intentosPorEnemigo; intento++)
+                int total = celdasSuelo.Count;
+                if (_indicesBaraja == null || _indicesBaraja.Length < total)
+                    _indicesBaraja = new int[total];
+                for (int i = 0; i < total; i++) _indicesBaraja[i] = i;
+                BarajarFisherYates(_indicesBaraja, total, rnd);
+
+                int limite = Mathf.Min(total, Mathf.Max(intentosPorEnemigo, total));
+                for (int k = 0; k < limite; k++)
                 {
-                    Vector3 pos = celdasSuelo[rnd.Next(celdasSuelo.Count)];
+                    Vector3 pos = celdasSuelo[_indicesBaraja[k]];
                     if (jugador != null && Vector2.Distance(pos, jugador.position) < distanciaMinJugador)
                         continue;
-                    Instantiate(prefab, pos, Quaternion.identity);
+
+                    float sep = SeparacionMinima(pos, ocupadas);
+                    if (sep >= distanciaMinEntreEnemigos)
+                    {
+                        InstanciarYRegistrar(prefab, pos, ocupadas);
+                        return;
+                    }
+                    if (sep > mejorSeparacion)
+                    {
+                        mejorSeparacion = sep;
+                        mejorPos = pos;
+                        hayMejor = true;
+                    }
+                }
+
+                if (relajarSiNoHayHueco && hayMejor)
+                {
+                    Debug.LogWarning($"[SpawnerEnemigos] Sin celda con separacion >= {distanciaMinEntreEnemigos:F2} para {prefab.name}. Acepto mejor ({mejorSeparacion:F2}).", this);
+                    InstanciarYRegistrar(prefab, mejorPos, ocupadas);
                     return;
                 }
                 Debug.LogWarning($"[SpawnerEnemigos] No se hallo celda de suelo valida para {prefab.name} en {SceneManager.GetActiveScene().name}", this);
@@ -190,11 +247,54 @@ namespace SafeRun.Core
                 if (evitarMuros && Physics2D.OverlapCircle(pos, radioChequeoMuro, mascaraMuros) != null)
                     continue;
 
-                Instantiate(prefab, pos, Quaternion.identity);
+                float sep = SeparacionMinima(pos, ocupadas);
+                if (sep >= distanciaMinEntreEnemigos)
+                {
+                    InstanciarYRegistrar(prefab, pos, ocupadas);
+                    return;
+                }
+                if (sep > mejorSeparacion)
+                {
+                    mejorSeparacion = sep;
+                    mejorPos = pos;
+                    hayMejor = true;
+                }
+            }
+
+            if (relajarSiNoHayHueco && hayMejor)
+            {
+                InstanciarYRegistrar(prefab, mejorPos, ocupadas);
                 return;
             }
 
             Debug.LogWarning($"[SpawnerEnemigos] No se encontro posicion valida para {prefab.name} en {SceneManager.GetActiveScene().name}", this);
+        }
+
+        private static void BarajarFisherYates(int[] arr, int n, System.Random rnd)
+        {
+            for (int i = n - 1; i > 0; i--)
+            {
+                int j = rnd.Next(i + 1);
+                int tmp = arr[i]; arr[i] = arr[j]; arr[j] = tmp;
+            }
+        }
+
+        private static float SeparacionMinima(Vector3 pos, List<Vector3> ocupadas)
+        {
+            if (ocupadas == null || ocupadas.Count == 0) return float.PositiveInfinity;
+            float minSqr = float.PositiveInfinity;
+            for (int i = 0; i < ocupadas.Count; i++)
+            {
+                float d = ((Vector2)(pos - ocupadas[i])).sqrMagnitude;
+                if (d < minSqr) minSqr = d;
+            }
+            return Mathf.Sqrt(minSqr);
+        }
+
+        private static void InstanciarYRegistrar(Enemigo prefab, Vector3 pos, List<Vector3> ocupadas)
+        {
+            Instantiate(prefab, pos, Quaternion.identity);
+            ocupadas?.Add(pos);
         }
 
         private static int NextInclusive(System.Random rnd, int min, int max)

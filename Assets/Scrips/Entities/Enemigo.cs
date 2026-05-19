@@ -25,12 +25,17 @@ namespace SafeRun.Entities
         [SerializeField] protected float danioBala = 10f;
         [SerializeField] protected float errorPunteria = 8f;
 
+        [Header("Confusion (Espejo de Emociones)")]
+        [SerializeField] protected Color colorConfusion = new Color(0.55f, 0.85f, 1f, 1f);
+
         protected Transform _objetivoIA;
         protected float _timerAtaque;
         protected bool _confundido;
         protected float _tiempoConfusion;
         protected float _danioConfusionPorSegundo;
         protected bool _jugadorDetectado;
+        protected Color _colorOriginal = Color.white;
+        protected bool _colorOriginalGuardado;
 
         protected bool _preparandoDisparo;
         protected float _timerPreparacion;
@@ -40,6 +45,11 @@ namespace SafeRun.Entities
         {
             base.Start();
             _spriteRenderer = GetComponent<SpriteRenderer>();
+            if (_spriteRenderer != null && !_colorOriginalGuardado)
+            {
+                _colorOriginal = _spriteRenderer.color;
+                _colorOriginalGuardado = true;
+            }
             _timerAtaque = cooldownAtaque;
             if (objetivoInicial != null)
             {
@@ -64,10 +74,18 @@ namespace SafeRun.Entities
 
                 RecibirDanio(_danioConfusionPorSegundo * Time.deltaTime);
 
+                if (_spriteRenderer != null)
+                {
+                    float pulso = 0.5f + 0.5f * Mathf.Sin(Time.time * 8f);
+                    _spriteRenderer.color = Color.Lerp(_colorOriginal, colorConfusion, 0.55f + 0.35f * pulso);
+                }
+
                 if (_tiempoConfusion <= 0f)
                 {
                     _confundido = false;
                     _danioConfusionPorSegundo = 0f;
+                    if (_spriteRenderer != null)
+                        _spriteRenderer.color = _colorOriginal;
                     Debug.Log($"[SafeRun] {nombre} supera la confusion");
                 }
                 return;
@@ -307,6 +325,14 @@ namespace SafeRun.Entities
 
         public virtual void ActivarConfusion(float duracion, float danoPorSegundo)
         {
+            if (_spriteRenderer == null)
+                _spriteRenderer = GetComponent<SpriteRenderer>();
+            if (_spriteRenderer != null && !_colorOriginalGuardado)
+            {
+                _colorOriginal = _spriteRenderer.color;
+                _colorOriginalGuardado = true;
+            }
+
             _confundido = true;
             _tiempoConfusion = duracion;
             _danioConfusionPorSegundo = danoPorSegundo;

@@ -28955,6 +28955,8 @@ MonoBehaviour:
   - Piso
   - Suelo
   distanciaMinJugador: 3
+  distanciaMinEntreEnemigos: 4
+  relajarSiNoHayHueco: 1
   centro: {fileID: 0}
   usarJugadorComoCentro: 1
   radio: 6
@@ -40457,6 +40459,7 @@ MonoBehaviour:
   radioEspejo: 5
   danioEspejoPorSegundo: 15
   cooldownEspejo: 15
+  itemDesbloqueoEspejo: Escudo Emociones
 --- !u!50 &900000023
 Rigidbody2D:
   serializedVersion: 5
