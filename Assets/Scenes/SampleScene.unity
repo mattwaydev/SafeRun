@@ -696,6 +696,7 @@ MonoBehaviour:
   damageIndicator: {fileID: 0}
   colliderSize: {x: 0.11, y: 0.18}
   colliderOffset: {x: 0, y: -0.01}
+  deadzoneDisparo: 0.3
   dashSpeed: 18
   dashDuration: 0.2
   dashCooldown: 3
@@ -1274,12 +1275,24 @@ PrefabInstance:
       value: Boss
       objectReference: {fileID: 0}
     - target: {fileID: 1795099664357545330, guid: 0113234bd4d6f5c4da9029206ddb953c, type: 3}
+      propertyPath: vidaFase1
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 1795099664357545330, guid: 0113234bd4d6f5c4da9029206ddb953c, type: 3}
+      propertyPath: vidaFase2
+      value: 525
+      objectReference: {fileID: 0}
+    - target: {fileID: 1795099664357545330, guid: 0113234bd4d6f5c4da9029206ddb953c, type: 3}
       propertyPath: barraVidaF1
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 1795099664357545330, guid: 0113234bd4d6f5c4da9029206ddb953c, type: 3}
       propertyPath: barraVidaF2
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1795099664357545330, guid: 0113234bd4d6f5c4da9029206ddb953c, type: 3}
+      propertyPath: cooldownSpawnF2
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6026194963205157091, guid: 0113234bd4d6f5c4da9029206ddb953c, type: 3}
       propertyPath: m_LocalPosition.x
