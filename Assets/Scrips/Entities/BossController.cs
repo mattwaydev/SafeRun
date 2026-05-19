@@ -57,6 +57,9 @@ namespace SafeRun.Entities
         [Header("UI Boss")]
         [SerializeField] private UnityEngine.UI.Image barraVidaF1;
         [SerializeField] private UnityEngine.UI.Image barraVidaF2;
+        [SerializeField] private GameObject bossHealthUIPrefab;
+        [SerializeField] private string nombreBarraF1 = "BossHealthBarF1";
+        [SerializeField] private string nombreBarraF2 = "BossHealthBarF2";
         [Header("Transicion Fase 2")]
         [SerializeField] private float duracionTransicion = 1.2f;
         [SerializeField] private float multiplicadorAgresividadF2 = 1.4f;
@@ -65,6 +68,8 @@ namespace SafeRun.Entities
         {
             vidaMaxima = vidaFase1;
             base.Start();
+            InstanciarUIBoss();
+            DespegarPuntosSpawn();
             _timerLluvia = cooldownLluvia * 0.3f;
             _timerCirculo = cooldownCirculo * 0.6f;
             _timerSpawn = cooldownSpawn;
@@ -77,6 +82,60 @@ namespace SafeRun.Entities
                 barraVidaF2.gameObject.SetActive(false);
             }
             VidaCambiada += ActualizarBarraUI;
+        }
+
+
+        private void DespegarPuntosSpawn()
+        {
+            if (puntosSpawn == null)
+            {
+                return;
+            }
+            for (int i = 0; i < puntosSpawn.Length; i++)
+            {
+                if (puntosSpawn[i] != null)
+                {
+                    puntosSpawn[i].SetParent(null, true);
+                }
+            }
+        }
+
+
+        private void InstanciarUIBoss()
+        {
+            if (barraVidaF1 != null && barraVidaF2 != null)
+            {
+                return;
+            }
+            if (bossHealthUIPrefab == null)
+            {
+                Debug.LogWarning("[SafeRun] BossController: ni las barras ni el prefab de UI estan asignados.");
+                return;
+            }
+            Canvas canvas = FindAnyObjectByType<Canvas>();
+            if (canvas == null)
+            {
+                Debug.LogWarning("[SafeRun] BossController: no hay Canvas en la escena para instanciar la UI del Boss.");
+                return;
+            }
+            GameObject uiInstance = Instantiate(bossHealthUIPrefab, canvas.transform, false);
+            UnityEngine.UI.Image[] images = uiInstance.GetComponentsInChildren<UnityEngine.UI.Image>(true);
+            for (int i = 0; i < images.Length; i++)
+            {
+                if (images[i].gameObject.name == nombreBarraF1)
+                {
+                    barraVidaF1 = images[i];
+                }
+                else if (images[i].gameObject.name == nombreBarraF2)
+                {
+                    barraVidaF2 = images[i];
+                }
+            }
+
+            if (barraVidaF1 == null || barraVidaF2 == null)
+            {
+                Debug.LogWarning("[SafeRun] BossController: no se encontraron las barras dentro del prefab de UI. Revisa los nombres.");
+            }
         }
        
        protected override void Update()

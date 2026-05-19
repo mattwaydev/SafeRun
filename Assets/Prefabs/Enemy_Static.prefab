@@ -49,7 +49,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SafeRun.Entities.Enemigo
   nombre: 
-  vidaMaxima: 100
+  vidaMaxima: 45
   velocidad: 3
   escudo: 0
   tipoAcoso: 1
@@ -185,7 +185,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 4
   m_MaskInteraction: 0
   m_Sprite: {fileID: -8896843927468393426, guid: 5db4581aba128714bb41d2bae8b297fb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
