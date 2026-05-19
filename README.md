@@ -9,7 +9,7 @@
 ![Unity](https://img.shields.io/badge/Unity-6-black?style=flat-square&logo=unity)
 ![Language](https://img.shields.io/badge/Language-C%23-239120?style=flat-square&logo=csharp)
 ![Platform](https://img.shields.io/badge/Platform-Windows-0078D6?style=flat-square&logo=windows)
-![Status](https://img.shields.io/badge/Status-In%20Development-e8607a?style=flat-square)
+![Status](https://img.shields.io/badge/Status-Completed-4ecdc4?style=flat-square)
 ![Team](https://img.shields.io/badge/Team-PiloCode%20Studios-4ecdc4?style=flat-square)
 
 </div>
