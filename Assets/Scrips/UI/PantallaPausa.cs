@@ -1,5 +1,7 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.UI;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -25,10 +27,26 @@ namespace SafeRun.UI
         [Header("Boton para cerrar opciones (opcional)")]
         [SerializeField] private Button botonCerrarOpciones;
 
+        private static PantallaPausa _instancia;
+        public static PantallaPausa Instancia => _instancia;
+
         public bool EstaPausado { get; private set; }
 
         private void Awake()
         {
+            var raiz = transform.root.gameObject;
+
+            if (_instancia != null && _instancia != this)
+            {
+                Destroy(raiz);
+                return;
+            }
+
+            _instancia = this;
+            DontDestroyOnLoad(raiz);
+
+            GarantizarEventSystem(raiz.transform);
+
             if (panelPausa != null)
                 panelPausa.SetActive(false);
 
@@ -40,15 +58,57 @@ namespace SafeRun.UI
             EnlazarBoton(botonVolverMenu, VolverAlMenu);
             EnlazarBoton(botonSalir, SalirJuego);
             EnlazarBoton(botonCerrarOpciones, CerrarOpciones);
+
+            SceneManager.sceneLoaded += AlCargarEscena;
         }
 
         private void OnDestroy()
         {
+            SceneManager.sceneLoaded -= AlCargarEscena;
+
+            if (_instancia == this)
+                _instancia = null;
+
             if (EstaPausado)
             {
                 Time.timeScale = 1f;
                 AudioListener.pause = false;
             }
+        }
+
+        private void AlCargarEscena(Scene escena, LoadSceneMode modo)
+        {
+            var raiz = transform.root;
+            var todos = FindObjectsByType<EventSystem>(FindObjectsSortMode.None);
+            foreach (var es in todos)
+            {
+                if (es == null) continue;
+                if (es.transform.root != raiz)
+                    Destroy(es.gameObject);
+            }
+        }
+
+        private static void GarantizarEventSystem(Transform padre)
+        {
+            var existente = FindFirstObjectByType<EventSystem>();
+
+            if (existente != null)
+            {
+                if (existente.transform.root != padre)
+                    existente.transform.SetParent(padre, false);
+
+                if (existente.GetComponent<InputSystemUIInputModule>() == null
+                    && existente.GetComponent<BaseInputModule>() == null)
+                {
+                    existente.gameObject.AddComponent<InputSystemUIInputModule>();
+                }
+                return;
+            }
+
+            var go = new GameObject("EventSystem");
+            go.transform.SetParent(padre, false);
+            go.AddComponent<EventSystem>();
+            go.AddComponent<InputSystemUIInputModule>();
         }
 
         private void Update()
@@ -127,12 +187,20 @@ namespace SafeRun.UI
             AudioListener.pause = false;
             EstaPausado = false;
 
+            if (panelOpciones != null)
+                panelOpciones.SetActive(false);
+
+            if (panelPausa != null)
+                panelPausa.SetActive(false);
+
             if (string.IsNullOrWhiteSpace(escenaMenuPrincipal))
             {
                 Debug.LogWarning("[PantallaPausa] No se definio la escena del menu principal.");
                 return;
             }
 
+            _instancia = null;
+            Destroy(transform.root.gameObject);
             SceneManager.LoadScene(escenaMenuPrincipal);
         }
 
