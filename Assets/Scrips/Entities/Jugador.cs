@@ -59,7 +59,10 @@ namespace SafeRun.Entities
         [SerializeField] private float radioEspejo = 5f;
         [SerializeField] private float danioEspejoPorSegundo = 15f;
         [SerializeField] private float cooldownEspejo = 15f;
+        [Tooltip("Nombre exacto del item que desbloquea la habilidad (ver Item.nombreItem en la escena).")]
+        [SerializeField] private string itemDesbloqueoEspejo = "Escudo Emociones";
         private float _cooldownTimerEspejo;
+        private bool _avisoEspejoBloqueadoMostrado;
         //--------------------------------
 
         protected override void Start()
@@ -313,6 +316,19 @@ namespace SafeRun.Entities
 
         private void ActivarEspejo()
         {
+            if (!modoPrueba)
+            {
+                if (inventario == null || !inventario.Contiene(itemDesbloqueoEspejo))
+                {
+                    if (!_avisoEspejoBloqueadoMostrado)
+                    {
+                        gestorJuego?.SolicitarSubtitulo("Aun no dominas el Espejo de las Emociones");
+                        _avisoEspejoBloqueadoMostrado = true;
+                    }
+                    return;
+                }
+            }
+
             if (espejoEmocionesPrefab == null)
             {
                 Debug.Log("[SafeRun] Espejo de las Emociones no configurado");
@@ -322,6 +338,7 @@ namespace SafeRun.Entities
             EspejoEmociones espejo = Instantiate(espejoEmocionesPrefab, transform.position, Quaternion.identity);
             espejo.Configurar(radioEspejo, danioEspejoPorSegundo);
             _cooldownTimerEspejo = cooldownEspejo;
+            _avisoEspejoBloqueadoMostrado = false;
 
             gestorJuego?.SolicitarSubtitulo("Espejo de las Emociones activado — los agresores se enfrentan a si mismos");
             gestorJuego?.SolicitarSonido("espejo_emociones");
