@@ -109,6 +109,15 @@ public partial class @JugadorInputs: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Disparar"",
+                    ""type"": ""Value"",
+                    ""id"": ""52d9ec84-8150-453c-82b1-b391532a151c"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -188,6 +197,72 @@ public partial class @JugadorInputs: IInputActionCollection2, IDisposable
                     ""action"": ""Interactuar"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f1d43933-e3b2-41cf-8367-d727b9b98fcf"",
+                    ""path"": ""<Gamepad>/rightStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Disparar"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""2D Vector"",
+                    ""id"": ""dea54938-0f9f-4ca1-a62d-397e9e4a154a"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Disparar"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""a26913d4-897e-4144-b15c-084e0098dab6"",
+                    ""path"": ""<Keyboard>/upArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Disparar"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""5240f40f-a275-40f2-bf61-2980b63c1a01"",
+                    ""path"": ""<Keyboard>/downArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Disparar"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""69657d42-ca07-4b41-9e14-a7e932508de4"",
+                    ""path"": ""<Keyboard>/leftArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Disparar"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""6ac2d087-39aa-48e6-99b8-566f245068ab"",
+                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Disparar"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 }
             ]
         }
@@ -198,6 +273,7 @@ public partial class @JugadorInputs: IInputActionCollection2, IDisposable
         m_Gameplay = asset.FindActionMap("Gameplay", throwIfNotFound: true);
         m_Gameplay_Movimiento = m_Gameplay.FindAction("Movimiento", throwIfNotFound: true);
         m_Gameplay_Interactuar = m_Gameplay.FindAction("Interactuar", throwIfNotFound: true);
+        m_Gameplay_Disparar = m_Gameplay.FindAction("Disparar", throwIfNotFound: true);
     }
 
     ~@JugadorInputs()
@@ -280,6 +356,7 @@ public partial class @JugadorInputs: IInputActionCollection2, IDisposable
     private List<IGameplayActions> m_GameplayActionsCallbackInterfaces = new List<IGameplayActions>();
     private readonly InputAction m_Gameplay_Movimiento;
     private readonly InputAction m_Gameplay_Interactuar;
+    private readonly InputAction m_Gameplay_Disparar;
     /// <summary>
     /// Provides access to input actions defined in input action map "Gameplay".
     /// </summary>
@@ -299,6 +376,10 @@ public partial class @JugadorInputs: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Gameplay/Interactuar".
         /// </summary>
         public InputAction @Interactuar => m_Wrapper.m_Gameplay_Interactuar;
+        /// <summary>
+        /// Provides access to the underlying input action "Gameplay/Disparar".
+        /// </summary>
+        public InputAction @Disparar => m_Wrapper.m_Gameplay_Disparar;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -331,6 +412,9 @@ public partial class @JugadorInputs: IInputActionCollection2, IDisposable
             @Interactuar.started += instance.OnInteractuar;
             @Interactuar.performed += instance.OnInteractuar;
             @Interactuar.canceled += instance.OnInteractuar;
+            @Disparar.started += instance.OnDisparar;
+            @Disparar.performed += instance.OnDisparar;
+            @Disparar.canceled += instance.OnDisparar;
         }
 
         /// <summary>
@@ -348,6 +432,9 @@ public partial class @JugadorInputs: IInputActionCollection2, IDisposable
             @Interactuar.started -= instance.OnInteractuar;
             @Interactuar.performed -= instance.OnInteractuar;
             @Interactuar.canceled -= instance.OnInteractuar;
+            @Disparar.started -= instance.OnDisparar;
+            @Disparar.performed -= instance.OnDisparar;
+            @Disparar.canceled -= instance.OnDisparar;
         }
 
         /// <summary>
@@ -402,5 +489,12 @@ public partial class @JugadorInputs: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnInteractuar(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Disparar" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnDisparar(InputAction.CallbackContext context);
     }
 }

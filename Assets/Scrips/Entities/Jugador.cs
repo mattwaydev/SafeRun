@@ -25,6 +25,8 @@ namespace SafeRun.Entities
 
         [SerializeField] private JugadorInputs _inputs;
         private Vector2 _movimiento;
+        private Vector2 _disparo;
+        [SerializeField, Range(0f, 1f)] private float deadzoneDisparo = 0.3f;
 
 
         //dash----------------------
@@ -100,6 +102,8 @@ namespace SafeRun.Entities
             _inputs = new JugadorInputs();
             _inputs.Gameplay.Movimiento.performed += ctx => _movimiento = ctx.ReadValue<Vector2>();
             _inputs.Gameplay.Movimiento.canceled += ctx => _movimiento = Vector2.zero;
+            _inputs.Gameplay.Disparar.performed += ctx => _disparo = ctx.ReadValue<Vector2>();
+            _inputs.Gameplay.Disparar.canceled += ctx => _disparo = Vector2.zero;
             _inputs.Enable();
 
         }
@@ -244,6 +248,11 @@ namespace SafeRun.Entities
                 Atacar();
             }
 
+            if (_disparo.magnitude > deadzoneDisparo && _cooldownTimerAtaque <= 0f)
+            {
+                Atacar();
+            }
+
             if (Keyboard.current.eKey.wasPressedThisFrame && _cooldownTimerEspejo <= 0f)
             {
                 ActivarEspejo();
@@ -285,7 +294,14 @@ namespace SafeRun.Entities
                 return;
             }
 
-            Vector2 direccion = _movimiento != Vector2.zero ? _movimiento : _ultimaDireccion;
+            Vector2 direccion;
+            if (_disparo.magnitude > deadzoneDisparo)
+                direccion = _disparo.normalized;
+            else if (_movimiento != Vector2.zero)
+                direccion = _movimiento;
+            else
+                direccion = _ultimaDireccion;
+
             Transform origen = puntoDisparo != null ? puntoDisparo : transform;
 
             ProyectilPapel proyectil = Instantiate(proyectilPapelPrefab, origen.position, Quaternion.identity);
