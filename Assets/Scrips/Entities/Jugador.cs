@@ -47,6 +47,11 @@ namespace SafeRun.Entities
         [SerializeField] private float cooldownAtaque = 0.8f;
         private float _cooldownTimerAtaque;
 
+        // Modo prueba: si esta activo, ignora el inventario para poder
+        // disparar y hacer dash sin items. NO dejarlo en true en el build final.
+        [Header("Pruebas / Debug")]
+        [SerializeField] private bool modoPrueba = false;
+
         [Header("Espejo de las Emociones")]
         [SerializeField] private EspejoEmociones espejoEmocionesPrefab;
         [SerializeField] private float radioEspejo = 5f;
@@ -248,8 +253,11 @@ namespace SafeRun.Entities
 
         private void IniciarDash()
         {
-            if (inventario == null || inventario.Cantidad < 2)
-                return;
+            if (!modoPrueba)
+            {
+                if (inventario == null || inventario.Cantidad < 2)
+                    return;
+            }
 
             _isDashing = true;
             _dashTimer = dashDuration;
@@ -264,8 +272,11 @@ namespace SafeRun.Entities
 
         public override void Atacar()
         {
-            if (inventario == null || inventario.Cantidad < 1)
-                return;
+            if (!modoPrueba)
+            {
+                if (inventario == null || inventario.Cantidad < 1)
+                    return;
+            }
 
             if (proyectilPapelPrefab == null)
             {
