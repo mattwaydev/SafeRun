@@ -13,6 +13,7 @@ public class LogicaBrillo : MonoBehaviour
     void Start()
     {
         slider.value = PlayerPrefs.GetFloat("brillo", 0.5f);
+        sliderValue = slider.value;
 
         panelBrillo.color = new Color(panelBrillo.color.r, panelBrillo.color.g, panelBrillo.color.b, slider.value);
     }
