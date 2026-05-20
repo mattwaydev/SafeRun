@@ -38,6 +38,8 @@ namespace SafeRun.Core
             if (jugador != null)
                 Destroy(jugador);
 
+            Item.ReiniciarRecogidos();
+
             Debug.Log($"[SafeRun] GameOverLoader cargando escena '{escena}'");
             SceneManager.LoadScene(escena);
 

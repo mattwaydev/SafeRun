@@ -28,6 +28,11 @@ public class Item : MonoBehaviour
         Destroy(gameObject);
     }
 
+    public static void ReiniciarRecogidos()
+    {
+        _itemsRecogidos.Clear();
+    }
+
     private string ConstruirClave()
     {
         string escena = SceneManager.GetActiveScene().name;

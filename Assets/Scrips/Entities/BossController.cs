@@ -60,6 +60,7 @@ namespace SafeRun.Entities
         [SerializeField] private GameObject bossHealthUIPrefab;
         [SerializeField] private string nombreBarraF1 = "BossHealthBarF1";
         [SerializeField] private string nombreBarraF2 = "BossHealthBarF2";
+        private GameObject _uiInstanciada;
         [Header("Transicion Fase 2")]
         [SerializeField] private float duracionTransicion = 1.2f;
         [SerializeField] private float multiplicadorAgresividadF2 = 1.4f;
@@ -119,6 +120,7 @@ namespace SafeRun.Entities
                 return;
             }
             GameObject uiInstance = Instantiate(bossHealthUIPrefab, canvas.transform, false);
+            _uiInstanciada = uiInstance;
             UnityEngine.UI.Image[] images = uiInstance.GetComponentsInChildren<UnityEngine.UI.Image>(true);
             for (int i = 0; i < images.Length; i++)
             {
@@ -395,6 +397,11 @@ namespace SafeRun.Entities
         private void OnDestroy()
         {
             VidaCambiada -= ActualizarBarraUI;
+            if (_uiInstanciada != null)
+            {
+                Destroy(_uiInstanciada);
+                _uiInstanciada = null;
+            }
         }
 
 
