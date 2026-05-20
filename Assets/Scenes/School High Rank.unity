@@ -33614,11 +33614,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1795099664357545330, guid: 0113234bd4d6f5c4da9029206ddb953c, type: 3}
       propertyPath: vidaFase1
-      value: 300
+      value: 600
       objectReference: {fileID: 0}
     - target: {fileID: 1795099664357545330, guid: 0113234bd4d6f5c4da9029206ddb953c, type: 3}
       propertyPath: vidaFase2
-      value: 525
+      value: 1200
       objectReference: {fileID: 0}
     - target: {fileID: 4506294029380657133, guid: 0113234bd4d6f5c4da9029206ddb953c, type: 3}
       propertyPath: m_LocalPosition.x
