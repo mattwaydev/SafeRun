@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
@@ -53,6 +54,10 @@ namespace SafeRun.Entities
         // disparar y hacer dash sin items. NO dejarlo en true en el build final.
         [Header("Pruebas / Debug")]
         [SerializeField] private bool modoPrueba = false;
+
+        [Header("Game Over")]
+        [SerializeField] private string escenaGameOver = "GameOver";
+        [SerializeField] private float retardoGameOver = 1.2f;
 
         [Header("Espejo de las Emociones")]
         [SerializeField] private EspejoEmociones espejoEmocionesPrefab;
@@ -371,6 +376,37 @@ namespace SafeRun.Entities
         {
             Debug.Log("[SafeRun] Jugador ha muerto.");
             Destroy(gameObject);
+        }
+
+        protected override void Morir()
+        {
+            if (_estaMuriendo) return;
+            _estaMuriendo = true;
+
+            Debug.Log("[SafeRun] Jugador.Morir() -> programando GameOver");
+
+            if (_rb != null)
+            {
+                _rb.linearVelocity = Vector2.zero;
+                _rb.simulated = false;
+            }
+
+            if (_animator != null)
+            {
+                if (HasParameter("isDead"))
+                    _animator.SetBool("isDead", true);
+                else if (HasParameter("IsDead"))
+                    _animator.SetBool("IsDead", true);
+            }
+
+            if (_inputs != null)
+                _inputs.Disable();
+
+            GameOverLoader.Programar(escenaGameOver, retardoGameOver, gestorJuego, gameObject);
+
+            SceneManager.sceneLoaded -= OnSceneLoaded;
+            if (_instancia == this)
+                _instancia = null;
         }
     }
 }
