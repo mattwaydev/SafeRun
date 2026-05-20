@@ -199,9 +199,44 @@ namespace SafeRun.UI
                 return;
             }
 
+            DestruirSingletonesDePartida();
+
+            var cargador = new GameObject("CargadorMenu");
+            DontDestroyOnLoad(cargador);
+            cargador.AddComponent<CargadorMenu>().Iniciar(escenaMenuPrincipal);
+
             _instancia = null;
             Destroy(transform.root.gameObject);
-            SceneManager.LoadScene(escenaMenuPrincipal);
+        }
+
+        private static void DestruirSingletonesDePartida()
+        {
+            var jugador = FindAnyObjectByType<SafeRun.Entities.Jugador>();
+            if (jugador != null)
+                Destroy(jugador.gameObject);
+
+            var gestorJuego = FindAnyObjectByType<SafeRun.Core.GestorJuego>();
+            if (gestorJuego != null)
+                Destroy(gestorJuego.gameObject);
+
+            var gestorEscenas = SafeRun.Core.GestorEscenas.Instancia;
+            if (gestorEscenas != null)
+                Destroy(gestorEscenas.gameObject);
+        }
+
+        internal static void DestruirPersistentesDePartida()
+        {
+            var camara = FindAnyObjectByType<SafeRun.Core.CamaraSeguidora>();
+            if (camara != null)
+                Destroy(camara.gameObject);
+
+            var barraVida = FindAnyObjectByType<BarraDeVida>();
+            if (barraVida != null)
+                Destroy(barraVida.gameObject);
+
+            var spawner = FindAnyObjectByType<SafeRun.Core.SpawnerEnemigos>();
+            if (spawner != null)
+                Destroy(spawner.gameObject);
         }
 
         public void SalirJuego()
@@ -223,6 +258,29 @@ namespace SafeRun.UI
             if (boton == null || accion == null) return;
             boton.onClick.RemoveListener(accion);
             boton.onClick.AddListener(accion);
+        }
+    }
+
+    public class CargadorMenu : MonoBehaviour
+    {
+        public void Iniciar(string escena)
+        {
+            StartCoroutine(EjecutarCarga(escena));
+        }
+
+        private System.Collections.IEnumerator EjecutarCarga(string escena)
+        {
+            yield return null;
+
+            var op = UnityEngine.SceneManagement.SceneManager.LoadSceneAsync(escena);
+            if (op == null)
+                yield break;
+
+            while (!op.isDone)
+                yield return null;
+
+            PantallaPausa.DestruirPersistentesDePartida();
+            Destroy(gameObject);
         }
     }
 }
