@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 6250877108731908054}
   - component: {fileID: 8731637283307386486}
   - component: {fileID: 8727620918037640369}
-  - component: {fileID: 8706596712382002878}
   - component: {fileID: 1795099664357545330}
+  - component: {fileID: 3739407746508511177}
   m_Layer: 0
   m_Name: Boss
   m_TagString: Untagged
@@ -30,9 +30,9 @@ Transform:
   m_GameObject: {fileID: 1141969079659526468}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.54, y: -0.45, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: 4.688, y: -0.48, z: 0}
+  m_LocalScale: {x: 5, y: 5, z: 5}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 4506294029380657133}
   - {fileID: 1027424573496336102}
@@ -89,8 +89,8 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 5
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: d17c0aca7b57ab744befec216f50c298, type: 3}
-  m_Color: {r: 0.7734603, g: 0.34242615, b: 0.8962264, a: 1}
+  m_Sprite: {fileID: 2912147235762990277, guid: 38e1368d2d999594d94764ec4e8e4181, type: 3}
+  m_Color: {r: 0.9622642, g: 0.7307761, b: 0.7507043, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -160,40 +160,18 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.0055175573, y: -0.039877623}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 0.64, y: 0.64}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.22826502, y: 0.4549107}
   m_EdgeRadius: 0
---- !u!95 &8706596712382002878
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1141969079659526468}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &1795099664357545330
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -223,6 +201,7 @@ MonoBehaviour:
   tiempoPreparacion: 0.7
   danioBala: 10
   errorPunteria: 8
+  colorConfusion: {r: 0.55, g: 0.85, b: 1, a: 1}
   vidaFase1: 150
   vidaFase2: 210
   cooldownLluvia: 7
@@ -260,6 +239,28 @@ MonoBehaviour:
   nombreBarraF2: BossHealthBarF2
   duracionTransicion: 1.2
   multiplicadorAgresividadF2: 1.4
+--- !u!95 &3739407746508511177
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1141969079659526468}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 10f9a2ce9cf9fc8449195a14b36992d2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &2208028820261229295
 GameObject:
   m_ObjectHideFlags: 0
