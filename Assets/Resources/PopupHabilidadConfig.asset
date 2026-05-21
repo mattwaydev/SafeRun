@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c4f9a2e1d8b3c5fa0e7d4b1c8f3a5e9, type: 3}
+  m_Name: PopupHabilidadConfig
+  m_EditorClassIdentifier:
+  entradas:
+  - nombreItem: Dash
+    panel: {fileID: 3407478348720245784, guid: 4ab9cea36e48f624691adf6f5152628b, type: 3}
+    icono: {fileID: 2800000, guid: f7a780fac72a34c48936f276710122d3, type: 3}
+    descripcion: "Mu\xE9vete a la velocidad del pensamiento. Esquiva cualquier ataque y reposici\xF3nate antes de que te alcancen."
+  - nombreItem: Escudo Emociones
+    panel: {fileID: 8077605553617590660, guid: fcf5e182add51e541ae282a941f6b361, type: 3}
+    icono: {fileID: 2800000, guid: d67d0f98f7c7a9a4caa63f3e38ad1f04, type: 3}
+    descripcion: "Refleja lo que te lanzan. Convierte la hostilidad del enemigo en su propia derrota."
+  - nombreItem: Disparo Papel
+    panel: {fileID: 8219858237177677159, guid: c23418784207e8c4a9042df28c211818, type: 3}
+    icono: {fileID: 2800000, guid: 340bb4fc6b64f06459e37a69827bbbdc, type: 3}
+    descripcion: "El conocimiento es tu arma. Lanza libros a tus enemigos y demuestra que las palabras golpean m\xE1s fuerte que los pu\xF1os."

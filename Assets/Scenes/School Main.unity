@@ -30872,7 +30872,8 @@ PrefabInstance:
       value: PauseSystem
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 92116311037351234, guid: 2bc3997558c5c504cbaae11cac9263ff, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2bc3997558c5c504cbaae11cac9263ff, type: 3}
@@ -40457,6 +40458,8 @@ MonoBehaviour:
   danioAtaque: 25
   cooldownAtaque: 0.8
   modoPrueba: 0
+  escenaGameOver: GameOver
+  retardoGameOver: 1.2
   espejoEmocionesPrefab: {fileID: 6452845590063260324, guid: 4e2527aad37eb624089182ba44551e12, type: 3}
   radioEspejo: 5
   danioEspejoPorSegundo: 15
