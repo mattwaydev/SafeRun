@@ -108,6 +108,8 @@ namespace SafeRun.Entities
             if (gestorJuego == null)
                 Debug.LogWarning("[SafeRun] GestorJuego no asignado en Jugador. Asignalo en el inspector.");
 
+            if (_instancia != this)
+                return;
 
             // Inicializa el nuevo input system
             _inputs = new JugadorInputs();
