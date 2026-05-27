@@ -234,6 +234,9 @@ namespace SafeRun.Entities
             }
 
             //Meter animación o algo por acá
+            if (_animator != null && HasParameter("damage"))
+                _animator.SetTrigger("damage");
+
             yield return new WaitForSeconds(duracionTransicion);
             _vidaActual = vidaFase2;
             vidaMaxima = vidaFase2;
@@ -259,6 +262,8 @@ namespace SafeRun.Entities
             {
                 yield break;
             }
+            if (_animator != null && HasParameter("attack"))
+                _animator.SetTrigger("attack");
             float danio;
             if (_faseActual == 1)
             {
@@ -287,6 +292,8 @@ namespace SafeRun.Entities
             {
                 yield break;
             }
+            if (_animator != null && HasParameter("attack"))
+                _animator.SetTrigger("attack");
             float danio;
             if (_faseActual == 1)
             {
@@ -408,6 +415,31 @@ namespace SafeRun.Entities
         public int FaseActualBoss
         {
             get { return _faseActual; }
+        }
+
+        public override void Mover(Vector2 direccion)
+        {
+            if (_rb != null)
+                _rb.linearVelocity = direccion * velocidad;
+
+            if (_animator != null)
+            {
+                bool isWalking = direccion.magnitude > 0.1f;
+                if (HasParameter("isWalking"))
+                    _animator.SetBool("isWalking", isWalking);
+
+                if (isWalking)
+                {
+                    _ultimaDireccion = direccion;
+                    if (HasParameter("moveX")) _animator.SetFloat("moveX", direccion.x);
+                    if (HasParameter("moveY")) _animator.SetFloat("moveY", direccion.y);
+                }
+                else
+                {
+                    if (HasParameter("moveX")) _animator.SetFloat("moveX", _ultimaDireccion.x);
+                    if (HasParameter("moveY")) _animator.SetFloat("moveY", _ultimaDireccion.y);
+                }
+            }
         }
     }
 }
