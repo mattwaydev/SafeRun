@@ -202,6 +202,8 @@ MonoBehaviour:
   danioBala: 10
   errorPunteria: 8
   colorConfusion: {r: 0.55, g: 0.85, b: 1, a: 1}
+  escenaVictoria: GameWinner
+  retardoVictoria: 1.5
   vidaFase1: 150
   vidaFase2: 210
   cooldownLluvia: 7
@@ -239,6 +241,7 @@ MonoBehaviour:
   nombreBarraF2: BossHealthBarF2
   duracionTransicion: 1.2
   multiplicadorAgresividadF2: 1.4
+  duracionMuerte: 2.48
 --- !u!95 &3739407746508511177
 Animator:
   serializedVersion: 7

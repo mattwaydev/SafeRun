@@ -68,6 +68,9 @@ namespace SafeRun.Entities
         [SerializeField] private float duracionTransicion = 1.2f;
         [SerializeField] private float multiplicadorAgresividadF2 = 1.4f;
 
+        [Header("Muerte")]
+        [SerializeField] private float duracionMuerte = 3f;
+
         protected override void Start()
         {
             vidaMaxima = vidaFase1;
@@ -223,7 +226,27 @@ namespace SafeRun.Entities
             {
                 return;
             }
-            base.Morir();
+            if (_estaMuriendo) return;
+            _estaMuriendo = true;
+
+            StopAllCoroutines();
+
+            if (_rb != null)
+            {
+                _rb.linearVelocity = Vector2.zero;
+                _rb.simulated = false;
+            }
+
+            if (_animator != null)
+            {
+                if (HasParameter("moveX")) _animator.SetFloat("moveX", _ultimaDireccion.x);
+                if (HasParameter("moveY")) _animator.SetFloat("moveY", _ultimaDireccion.y);
+                if (HasParameter("isWalking")) _animator.SetBool("isWalking", false);
+                if (HasParameter("isDead")) _animator.SetBool("isDead", true);
+                else if (HasParameter("IsDead")) _animator.SetBool("IsDead", true);
+            }
+
+            Destroy(gameObject, duracionMuerte);
 
             var gestor = FindAnyObjectByType<GestorJuego>();
             var jugador = FindAnyObjectByType<Jugador>();
