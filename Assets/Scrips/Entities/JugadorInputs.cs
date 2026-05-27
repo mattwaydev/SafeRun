@@ -118,6 +118,24 @@ public partial class @JugadorInputs: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Dash"",
+                    ""type"": ""Button"",
+                    ""id"": ""66fdda1c-2859-44c5-9b4c-b748048f7c72"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Espejo"",
+                    ""type"": ""Button"",
+                    ""id"": ""bf82fe6a-9910-44c7-b0c3-94d14cdd08c2"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -200,6 +218,17 @@ public partial class @JugadorInputs: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""56005fb8-97c3-451a-8345-ce1d53f50f64"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Interactuar"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""f1d43933-e3b2-41cf-8367-d727b9b98fcf"",
                     ""path"": ""<Gamepad>/rightStick"",
                     ""interactions"": """",
@@ -263,6 +292,50 @@ public partial class @JugadorInputs: IInputActionCollection2, IDisposable
                     ""action"": ""Disparar"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""98f4549e-f1c0-4563-8914-010bdd82453a"",
+                    ""path"": ""<Keyboard>/leftShift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Dash"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e9d637ad-dc25-4a06-90d8-5c5f6f3d0c07"",
+                    ""path"": ""<Gamepad>/leftShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Dash"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4e51d1e3-f25c-4748-86d6-d9106f61c642"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Espejo"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""eb94a55a-c50e-4be4-a8af-2696dcd0dd7d"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Espejo"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -274,6 +347,8 @@ public partial class @JugadorInputs: IInputActionCollection2, IDisposable
         m_Gameplay_Movimiento = m_Gameplay.FindAction("Movimiento", throwIfNotFound: true);
         m_Gameplay_Interactuar = m_Gameplay.FindAction("Interactuar", throwIfNotFound: true);
         m_Gameplay_Disparar = m_Gameplay.FindAction("Disparar", throwIfNotFound: true);
+        m_Gameplay_Dash = m_Gameplay.FindAction("Dash", throwIfNotFound: true);
+        m_Gameplay_Espejo = m_Gameplay.FindAction("Espejo", throwIfNotFound: true);
     }
 
     ~@JugadorInputs()
@@ -357,6 +432,8 @@ public partial class @JugadorInputs: IInputActionCollection2, IDisposable
     private readonly InputAction m_Gameplay_Movimiento;
     private readonly InputAction m_Gameplay_Interactuar;
     private readonly InputAction m_Gameplay_Disparar;
+    private readonly InputAction m_Gameplay_Dash;
+    private readonly InputAction m_Gameplay_Espejo;
     /// <summary>
     /// Provides access to input actions defined in input action map "Gameplay".
     /// </summary>
@@ -380,6 +457,14 @@ public partial class @JugadorInputs: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Gameplay/Disparar".
         /// </summary>
         public InputAction @Disparar => m_Wrapper.m_Gameplay_Disparar;
+        /// <summary>
+        /// Provides access to the underlying input action "Gameplay/Dash".
+        /// </summary>
+        public InputAction @Dash => m_Wrapper.m_Gameplay_Dash;
+        /// <summary>
+        /// Provides access to the underlying input action "Gameplay/Espejo".
+        /// </summary>
+        public InputAction @Espejo => m_Wrapper.m_Gameplay_Espejo;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -415,6 +500,12 @@ public partial class @JugadorInputs: IInputActionCollection2, IDisposable
             @Disparar.started += instance.OnDisparar;
             @Disparar.performed += instance.OnDisparar;
             @Disparar.canceled += instance.OnDisparar;
+            @Dash.started += instance.OnDash;
+            @Dash.performed += instance.OnDash;
+            @Dash.canceled += instance.OnDash;
+            @Espejo.started += instance.OnEspejo;
+            @Espejo.performed += instance.OnEspejo;
+            @Espejo.canceled += instance.OnEspejo;
         }
 
         /// <summary>
@@ -435,6 +526,12 @@ public partial class @JugadorInputs: IInputActionCollection2, IDisposable
             @Disparar.started -= instance.OnDisparar;
             @Disparar.performed -= instance.OnDisparar;
             @Disparar.canceled -= instance.OnDisparar;
+            @Dash.started -= instance.OnDash;
+            @Dash.performed -= instance.OnDash;
+            @Dash.canceled -= instance.OnDash;
+            @Espejo.started -= instance.OnEspejo;
+            @Espejo.performed -= instance.OnEspejo;
+            @Espejo.canceled -= instance.OnEspejo;
         }
 
         /// <summary>
@@ -496,5 +593,19 @@ public partial class @JugadorInputs: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnDisparar(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Dash" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnDash(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Espejo" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnEspejo(InputAction.CallbackContext context);
     }
 }

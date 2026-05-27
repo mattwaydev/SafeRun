@@ -112,6 +112,8 @@ namespace SafeRun.Entities
             _inputs.Gameplay.Movimiento.canceled += ctx => _movimiento = Vector2.zero;
             _inputs.Gameplay.Disparar.performed += ctx => _disparo = ctx.ReadValue<Vector2>();
             _inputs.Gameplay.Disparar.canceled += ctx => _disparo = Vector2.zero;
+            _inputs.Gameplay.Dash.performed += OnDashInput;
+            _inputs.Gameplay.Espejo.performed += OnEspejoInput;
             _inputs.Enable();
 
         }
@@ -246,25 +248,22 @@ namespace SafeRun.Entities
                 }
             }
 
-            if (Keyboard.current.leftShiftKey.wasPressedThisFrame && !_isDashing && _dashCooldownTimer <= 0f)
-            {
-                IniciarDash();
-            }
-
-            if (Keyboard.current.spaceKey.wasPressedThisFrame && _cooldownTimerAtaque <= 0f)
-            {
-                Atacar();
-            }
-
             if (_disparo.magnitude > deadzoneDisparo && _cooldownTimerAtaque <= 0f)
             {
                 Atacar();
             }
+        }
 
-            if (Keyboard.current.eKey.wasPressedThisFrame && _cooldownTimerEspejo <= 0f)
-            {
-                ActivarEspejo();
-            }
+        private void OnDashInput(InputAction.CallbackContext ctx)
+        {
+            if (_estaMuriendo || _isDashing || _dashCooldownTimer > 0f) return;
+            IniciarDash();
+        }
+
+        private void OnEspejoInput(InputAction.CallbackContext ctx)
+        {
+            if (_estaMuriendo || _cooldownTimerEspejo > 0f) return;
+            ActivarEspejo();
         }
 
 
