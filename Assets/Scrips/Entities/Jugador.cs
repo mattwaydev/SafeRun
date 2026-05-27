@@ -115,7 +115,6 @@ namespace SafeRun.Entities
             _inputs.Gameplay.Dash.performed += OnDashInput;
             _inputs.Gameplay.Espejo.performed += OnEspejoInput;
             _inputs.Enable();
-
         }
 
         private void Awake()
@@ -248,7 +247,11 @@ namespace SafeRun.Entities
                 }
             }
 
-            if (_disparo.magnitude > deadzoneDisparo && _cooldownTimerAtaque <= 0f)
+            bool atacarPulsado =
+                (UnityEngine.InputSystem.Keyboard.current != null && UnityEngine.InputSystem.Keyboard.current.spaceKey.wasPressedThisFrame)
+                || (UnityEngine.InputSystem.Gamepad.current != null && UnityEngine.InputSystem.Gamepad.current.buttonSouth.wasPressedThisFrame);
+
+            if (atacarPulsado && _cooldownTimerAtaque <= 0f)
             {
                 Atacar();
             }
@@ -296,18 +299,13 @@ namespace SafeRun.Entities
 
             if (proyectilPapelPrefab == null)
             {
-                Debug.Log("[SafeRun] Jugador lanza respuesta positiva");
                 _cooldownTimerAtaque = cooldownAtaque;
                 return;
             }
 
-            Vector2 direccion;
-            if (_disparo.magnitude > deadzoneDisparo)
-                direccion = _disparo.normalized;
-            else if (_movimiento != Vector2.zero)
-                direccion = _movimiento;
-            else
-                direccion = _ultimaDireccion;
+            Vector2 direccion = _movimiento.sqrMagnitude > 0.01f
+                ? _movimiento.normalized
+                : _ultimaDireccion;
 
             Transform origen = puntoDisparo != null ? puntoDisparo : transform;
 

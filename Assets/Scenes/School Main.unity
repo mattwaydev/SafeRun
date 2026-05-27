@@ -33885,6 +33885,7 @@ GameObject:
   - component: {fileID: 900000028}
   - component: {fileID: 900000029}
   - component: {fileID: 1840597747}
+  - component: {fileID: 1840597748}
   m_Layer: 0
   m_Name: Jugador
   m_TagString: Player
@@ -41045,6 +41046,29 @@ MonoBehaviour:
   tasaPorSegundo: 3
   delayTrasDanio: 5
   activo: 1
+--- !u!114 &1840597748
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 900000020}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd0c6ca095c0cc846b75e864876ec0da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SafeRun.Entities.CharacterSwitcher
+  skins:
+  - id: male
+    controller: {fileID: 9100000, guid: 9bea5e3efff6d8a43a00e5e85d044efb, type: 2}
+    defaultSprite: {fileID: 8793639957104055765, guid: 895c98d74d84e4e47afeaf756f074ffc, type: 3}
+  - id: female
+    controller: {fileID: 9100000, guid: b3da5fd19e6dcfd45a31d4132a7932dd, type: 2}
+    defaultSprite: {fileID: 4723107735738678597, guid: c2d4d90c9a7df8d40b94cf5cee53ded1, type: 3}
+  initialIndex: 0
+  useSavedSelection: 1
+  animator: {fileID: 900000026}
+  spriteRenderer: {fileID: 900000024}
 --- !u!1 &1922596468
 GameObject:
   m_ObjectHideFlags: 0

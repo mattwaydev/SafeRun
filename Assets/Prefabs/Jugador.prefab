@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 7158059757397544332}
   - component: {fileID: 8978575901188569531}
   - component: {fileID: 8966887143823078710}
+  - component: {fileID: 2463767170814303440}
   m_Layer: 0
   m_Name: Jugador
   m_TagString: Player
@@ -61,6 +62,7 @@ MonoBehaviour:
   damageIndicator: {fileID: 0}
   colliderSize: {x: 0.11, y: 0.18}
   colliderOffset: {x: 0, y: -0.01}
+  deadzoneDisparo: 0.3
   dashSpeed: 18
   dashDuration: 0.2
   dashCooldown: 2.6
@@ -69,10 +71,13 @@ MonoBehaviour:
   danioAtaque: 25
   cooldownAtaque: 0.8
   modoPrueba: 0
+  escenaGameOver: GameOver
+  retardoGameOver: 1.2
   espejoEmocionesPrefab: {fileID: 6452845590063260324, guid: 4e2527aad37eb624089182ba44551e12, type: 3}
   radioEspejo: 5
   danioEspejoPorSegundo: 15
   cooldownEspejo: 15
+  itemDesbloqueoEspejo: Escudo Emociones
 --- !u!50 &1826787152211591370
 Rigidbody2D:
   serializedVersion: 5
@@ -312,6 +317,29 @@ MonoBehaviour:
     m_RotationOrder: 4
   useUnscaledTime: 1
   sortingOrder: 1000
+--- !u!114 &2463767170814303440
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1074807429208562862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd0c6ca095c0cc846b75e864876ec0da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SafeRun.Entities.CharacterSwitcher
+  skins:
+  - id: male
+    controller: {fileID: 9100000, guid: 9bea5e3efff6d8a43a00e5e85d044efb, type: 2}
+    defaultSprite: {fileID: 8793639957104055765, guid: 895c98d74d84e4e47afeaf756f074ffc, type: 3}
+  - id: female
+    controller: {fileID: 9100000, guid: b3da5fd19e6dcfd45a31d4132a7932dd, type: 2}
+    defaultSprite: {fileID: 4723107735738678597, guid: c2d4d90c9a7df8d40b94cf5cee53ded1, type: 3}
+  initialIndex: 0
+  useSavedSelection: 1
+  animator: {fileID: 7158059757397544332}
+  spriteRenderer: {fileID: 1487049670261972660}
 --- !u!1 &7663544839125301884
 GameObject:
   m_ObjectHideFlags: 0

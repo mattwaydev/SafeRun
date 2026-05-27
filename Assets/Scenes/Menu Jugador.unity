@@ -129,7 +129,7 @@ GameObject:
   m_Component:
   - component: {fileID: 236716053}
   - component: {fileID: 236716055}
-  - component: {fileID: 236716054}
+  - component: {fileID: 236716056}
   m_Layer: 5
   m_Name: Personaje Imagen
   m_TagString: Untagged
@@ -156,33 +156,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -29.408997}
   m_SizeDelta: {x: 165.166, y: 200.176}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &236716054
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 236716052}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.RawImage
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Texture: {fileID: 2800000, guid: adb8aff026501f0428f1fb66ec0e9563, type: 3}
-  m_UVRect:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1
-    height: 1
 --- !u!222 &236716055
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -191,6 +164,36 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 236716052}
   m_CullTransparentMesh: 1
+--- !u!114 &236716056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 236716052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 1
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &496711503
 GameObject:
   m_ObjectHideFlags: 0
@@ -426,7 +429,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 986823529}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2138369371}
+        m_TargetAssemblyTypeName: SafeRun.UI.SelectorPersonajeMenu, Assembly-CSharp
+        m_MethodName: Siguiente
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &986823529
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -683,7 +698,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1146512796}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2138369371}
+        m_TargetAssemblyTypeName: SafeRun.UI.SelectorPersonajeMenu, Assembly-CSharp
+        m_MethodName: Atras
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1146512796
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -983,7 +1010,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1936295321}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2138369371}
+        m_TargetAssemblyTypeName: SafeRun.UI.SelectorPersonajeMenu, Assembly-CSharp
+        m_MethodName: Jugar
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1936295321
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1022,6 +1061,60 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1936295318}
   m_CullTransparentMesh: 1
+--- !u!1 &2138369370
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2138369372}
+  - component: {fileID: 2138369371}
+  m_Layer: 0
+  m_Name: SelectorPersonaje
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2138369371
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2138369370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cc35add95ea9c246b4b042b803bff23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SafeRun.UI.SelectorPersonajeMenu
+  opciones:
+  - nombre: Hombre
+    preview: {fileID: 4784360387621543307, guid: adb8aff026501f0428f1fb66ec0e9563, type: 3}
+  - nombre: Mujer
+    preview: {fileID: 6634581306125872364, guid: f5b527344c480dc45ab82abbb533fd58, type: 3}
+  imagenPreview: {fileID: 236716056}
+  imagenPreviewRaw: {fileID: 1539047369}
+  textoNombre: {fileID: 0}
+  textoNombreTMP: {fileID: 0}
+  escenaDestino: School Main
+--- !u!4 &2138369372
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2138369370}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1068.6616, y: 414.29788, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -1029,3 +1122,4 @@ SceneRoots:
   - {fileID: 1138456132}
   - {fileID: 1229969657}
   - {fileID: 842631176}
+  - {fileID: 2138369372}

@@ -3401,7 +3401,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cbc677a35f602344b938b018a467633, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CambiarEscena
-  Escena: School Main
+  Escena: Menu Jugador
 --- !u!1 &1750760785
 GameObject:
   m_ObjectHideFlags: 0
