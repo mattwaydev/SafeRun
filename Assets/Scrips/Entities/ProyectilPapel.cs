@@ -9,6 +9,8 @@ namespace SafeRun.Entities
         [SerializeField] private float tiempoVida = 3f;
         [SerializeField] private bool rotarHaciaDireccion = true;
         [SerializeField] private float offsetAngulo = 0f;
+        [SerializeField] private float shakeDuracion = 0.12f;
+        [SerializeField] private float shakeMagnitud = 0.18f;
 
         private Vector2 _direccion;
 
@@ -46,6 +48,7 @@ namespace SafeRun.Entities
             if (enemigo != null)
             {
                 enemigo.RecibirDanio(danio);
+                SafeRun.Core.CamaraSeguidora.SacudirCamara(shakeDuracion, shakeMagnitud);
                 Destroy(gameObject);
             }
         }

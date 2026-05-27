@@ -9,6 +9,12 @@ namespace SafeRun.Core
         private static CamaraSeguidora _instancia;
         [SerializeField] private Transform objetivo;
         [SerializeField] private float suavizado = 5f;
+        [SerializeField] private float decaimientoShake = 1.4f;
+
+        private float _shakeTiempoRestante;
+        private float _shakeDuracionTotal;
+        private float _shakeMagnitud;
+        private Vector3 _shakeOffset;
 
         private void Awake()
         {
@@ -46,6 +52,24 @@ namespace SafeRun.Core
             objetivo = nuevoObjetivo;
         }
 
+        public static void SacudirCamara(float duracion, float magnitud)
+        {
+            if (_instancia != null)
+                _instancia.Shake(duracion, magnitud);
+        }
+
+        public void Shake(float duracion, float magnitud)
+        {
+            if (duracion <= 0f || magnitud <= 0f) return;
+            if (duracion > _shakeTiempoRestante)
+            {
+                _shakeTiempoRestante = duracion;
+                _shakeDuracionTotal = duracion;
+            }
+            if (magnitud > _shakeMagnitud)
+                _shakeMagnitud = magnitud;
+        }
+
         private void LateUpdate()
         {
             if (objetivo == null)
@@ -53,7 +77,25 @@ namespace SafeRun.Core
 
             if (objetivo == null) return;
             Vector3 posObjetivo = new Vector3(objetivo.position.x, objetivo.position.y, transform.position.z);
-            transform.position = Vector3.Lerp(transform.position, posObjetivo, suavizado * Time.deltaTime);
+            Vector3 baseActual = transform.position - _shakeOffset;
+            Vector3 baseNueva = Vector3.Lerp(baseActual, posObjetivo, suavizado * Time.deltaTime);
+
+            Vector3 nuevoOffset = Vector3.zero;
+            if (_shakeTiempoRestante > 0f)
+            {
+                _shakeTiempoRestante -= Time.deltaTime;
+                float t = Mathf.Clamp01(_shakeTiempoRestante / Mathf.Max(_shakeDuracionTotal, 0.0001f));
+                float fuerza = _shakeMagnitud * Mathf.Pow(t, decaimientoShake);
+                nuevoOffset = new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), 0f) * fuerza;
+                if (_shakeTiempoRestante <= 0f)
+                {
+                    _shakeTiempoRestante = 0f;
+                    _shakeMagnitud = 0f;
+                }
+            }
+
+            _shakeOffset = nuevoOffset;
+            transform.position = baseNueva + nuevoOffset;
         }
     }
 }

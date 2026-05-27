@@ -59,6 +59,9 @@ namespace SafeRun.Entities
         [SerializeField] private string escenaGameOver = "GameOver";
         [SerializeField] private float retardoGameOver = 1.2f;
 
+        [SerializeField] private float shakeDanioDuracion = 0.2f;
+        [SerializeField] private float shakeDanioMagnitud = 0.28f;
+
         [Header("Espejo de las Emociones")]
         [SerializeField] private EspejoEmociones espejoEmocionesPrefab;
         [SerializeField] private float radioEspejo = 5f;
@@ -366,6 +369,7 @@ namespace SafeRun.Entities
                     damageIndicator = GetComponent<DamageIndicator>();
 
                 damageIndicator?.Trigger();
+                SafeRun.Core.CamaraSeguidora.SacudirCamara(shakeDanioDuracion, shakeDanioMagnitud);
             }
         }
 
