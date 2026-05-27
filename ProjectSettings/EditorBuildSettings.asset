@@ -44,5 +44,11 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/GameWinner.unity
     guid: e5da82c0c6350df47b44120621343af8
+  - enabled: 1
+    path: Assets/Scenes/CONTEXTO.unity
+    guid: bf5775c9b65ee2946b0ec2ebb5169d77
+  - enabled: 1
+    path: Assets/Scenes/Dialogo 2.unity
+    guid: b6bb786d8df963c4a8c32fc8410a9882
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 5741bc6f3f56c424ab71bff31ff4ac81, type: 3}

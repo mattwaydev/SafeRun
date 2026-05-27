@@ -22442,6 +22442,8 @@ MonoBehaviour:
   semilla: 0
   escenasExcluidas:
   - School High Rank
+  - CONTEXTO
+  - Dialogo 2
   framesEsperaTrasCarga: 2
 --- !u!4 &311435595
 Transform:
@@ -34347,7 +34349,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a4c0d7b3e8d4a5d9f8a2b7c7d7e2222, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SafeRun.Core.PuertaSala
-  salaDestino: School High Rank
+  salaDestino: Dialogo 2
   spawnDestino: PlayerSpawn
   usarSalaAnterior: 0
 --- !u!61 &1170128244

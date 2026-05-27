@@ -1099,7 +1099,7 @@ MonoBehaviour:
   imagenPreviewRaw: {fileID: 1539047369}
   textoNombre: {fileID: 0}
   textoNombreTMP: {fileID: 0}
-  escenaDestino: School Main
+  escenaDestino: CONTEXTO
 --- !u!4 &2138369372
 Transform:
   m_ObjectHideFlags: 0

@@ -179,6 +179,11 @@ MonoBehaviour:
   - '"Me da igual. Alguien tiene que plantarle cara a esto."'
   - ' "Entonces vas a aprender lo que es el miedo de verdad."'
   textSpeed: 0.1
+  heroImage: {fileID: 1764730122}
+  villainImage: {fileID: 1030659729}
+  fadedAlpha: 0.4
+  nextScene: School Main
+  nextSpawn:
 --- !u!114 &6854028
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -858,6 +858,11 @@ MonoBehaviour:
   - "\"\xA1JA! \xA1Qu\xE9 emocionante! Entonces mu\xE9strame lo que vales... \xA1porque
     voy a destruirte igual que destrozo reputaciones!\""
   textSpeed: 0.1
+  heroImage: {fileID: 82082948}
+  villainImage: {fileID: 68615969}
+  fadedAlpha: 0.4
+  nextScene: School High Rank
+  nextSpawn: PlayerSpawn
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
