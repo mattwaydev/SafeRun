@@ -1,6 +1,7 @@
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 namespace SafeRun.UI
@@ -10,7 +11,6 @@ namespace SafeRun.UI
         private static PopupHabilidad _instancia;
 
         [SerializeField] private float duracionFadeIn = 0.25f;
-        [SerializeField] private float duracionPermanencia = 2.2f;
         [SerializeField] private float duracionFadeOut = 0.35f;
         [SerializeField] private float escalaInicial = 0.5f;
         [SerializeField] private int sortingOrder = 5000;
@@ -25,9 +25,13 @@ namespace SafeRun.UI
         [SerializeField] private Color colorTextoDescripcion = Color.white;
         [SerializeField] private Vector2 resolucionReferencia = new Vector2(800f, 600f);
 
+        public static bool EstaActivo { get; private set; }
+
         private PopupHabilidadConfig _config;
         private Coroutine _enCurso;
         private GameObject _overlayActivo;
+        private float _timeScaleAnterior = 1f;
+        private bool _pausaAplicada;
 
         public static void Mostrar(string nombreItem)
         {
@@ -72,9 +76,10 @@ namespace SafeRun.UI
             if (_enCurso != null)
             {
                 StopCoroutine(_enCurso);
-                if (_overlayActivo != null) Destroy(_overlayActivo);
-                _overlayActivo = null;
+                LimpiarOverlay();
+                RestaurarTiempo();
             }
+            AplicarPausa();
             _enCurso = StartCoroutine(Ejecutar(entrada));
         }
 
@@ -164,7 +169,7 @@ namespace SafeRun.UI
             float t = 0f;
             while (t < duracionFadeIn)
             {
-                if (grupo == null) yield break;
+                if (grupo == null) { FinalizarSinSalida(); yield break; }
                 t += Time.unscaledDeltaTime;
                 float p = Mathf.Clamp01(t / duracionFadeIn);
                 grupo.alpha = p;
@@ -176,20 +181,97 @@ namespace SafeRun.UI
             if (grupo != null) grupo.alpha = 1f;
             if (popRect != null) popRect.localScale = Vector3.one;
 
-            yield return new WaitForSecondsRealtime(duracionPermanencia);
+            // Espera un frame para no consumir el input que recogio el item.
+            yield return null;
+            while (!CualquierInputPresionado())
+                yield return null;
+
+            RestaurarTiempo();
 
             t = 0f;
             while (t < duracionFadeOut)
             {
-                if (grupo == null) yield break;
+                if (grupo == null) { FinalizarSinSalida(); yield break; }
                 t += Time.unscaledDeltaTime;
                 grupo.alpha = 1f - Mathf.Clamp01(t / duracionFadeOut);
                 yield return null;
             }
 
-            if (contenedor != null) Destroy(contenedor);
-            if (_overlayActivo == contenedor) _overlayActivo = null;
+            LimpiarOverlay();
             _enCurso = null;
+        }
+
+        private void AplicarPausa()
+        {
+            if (_pausaAplicada) return;
+            _timeScaleAnterior = Time.timeScale;
+            Time.timeScale = 0f;
+            _pausaAplicada = true;
+            EstaActivo = true;
+        }
+
+        private void RestaurarTiempo()
+        {
+            if (!_pausaAplicada) return;
+            Time.timeScale = _timeScaleAnterior > 0f ? _timeScaleAnterior : 1f;
+            _pausaAplicada = false;
+            EstaActivo = false;
+        }
+
+        private void LimpiarOverlay()
+        {
+            if (_overlayActivo != null)
+            {
+                Destroy(_overlayActivo);
+                _overlayActivo = null;
+            }
+        }
+
+        private void FinalizarSinSalida()
+        {
+            RestaurarTiempo();
+            LimpiarOverlay();
+            _enCurso = null;
+        }
+
+        private void OnDisable()
+        {
+            RestaurarTiempo();
+        }
+
+        private static bool CualquierInputPresionado()
+        {
+            var kb = Keyboard.current;
+            if (kb != null && kb.anyKey.wasPressedThisFrame) return true;
+
+            var mouse = Mouse.current;
+            if (mouse != null && (mouse.leftButton.wasPressedThisFrame ||
+                                  mouse.rightButton.wasPressedThisFrame ||
+                                  mouse.middleButton.wasPressedThisFrame))
+                return true;
+
+            var gp = Gamepad.current;
+            if (gp != null)
+            {
+                if (gp.buttonSouth.wasPressedThisFrame) return true;
+                if (gp.buttonNorth.wasPressedThisFrame) return true;
+                if (gp.buttonEast.wasPressedThisFrame) return true;
+                if (gp.buttonWest.wasPressedThisFrame) return true;
+                if (gp.startButton.wasPressedThisFrame) return true;
+                if (gp.selectButton.wasPressedThisFrame) return true;
+                if (gp.leftShoulder.wasPressedThisFrame) return true;
+                if (gp.rightShoulder.wasPressedThisFrame) return true;
+                if (gp.leftTrigger.wasPressedThisFrame) return true;
+                if (gp.rightTrigger.wasPressedThisFrame) return true;
+                if (gp.leftStickButton.wasPressedThisFrame) return true;
+                if (gp.rightStickButton.wasPressedThisFrame) return true;
+                if (gp.dpad.up.wasPressedThisFrame ||
+                    gp.dpad.down.wasPressedThisFrame ||
+                    gp.dpad.left.wasPressedThisFrame ||
+                    gp.dpad.right.wasPressedThisFrame) return true;
+            }
+
+            return false;
         }
 
         private static float EaseOutBack(float x)

@@ -113,6 +113,8 @@ namespace SafeRun.UI
 
         private void Update()
         {
+            if (PopupHabilidad.EstaActivo) return;
+
             var teclado = Keyboard.current;
             if (teclado == null) return;
 
