@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using SafeRun.Core;
 
 namespace SafeRun.Entities
 {
     public class BossController : Enemigo
     {
+        [SerializeField] private string escenaVictoria = "GameWinner";
+        [SerializeField] private float retardoVictoria = 1.5f;
         //fases del boss hola hola hola
         [Header("Fases")]
         [SerializeField] private float vidaFase1 = 150f;
@@ -221,6 +224,11 @@ namespace SafeRun.Entities
                 return;
             }
             base.Morir();
+
+            var gestor = FindAnyObjectByType<GestorJuego>();
+            var jugador = FindAnyObjectByType<Jugador>();
+            GameObject jugadorGO = jugador != null ? jugador.gameObject : null;
+            GameOverLoader.Programar(escenaVictoria, retardoVictoria, gestor, jugadorGO, true);
         }
 
 

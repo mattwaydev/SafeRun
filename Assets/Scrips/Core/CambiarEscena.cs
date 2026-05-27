@@ -9,4 +9,13 @@ public class CambiarEscena : MonoBehaviour
     {
         SceneManager.LoadScene(Escena);
     }
+
+    public void SalirJuego()
+    {
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
+        Application.Quit();
+#endif
+    }
 }
