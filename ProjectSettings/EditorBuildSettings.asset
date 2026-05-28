@@ -53,5 +53,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Dialogo 2.unity
     guid: b6bb786d8df963c4a8c32fc8410a9882
+  - enabled: 1
+    path: Assets/Scenes/ESTADISTICA.unity
+    guid: 49e8231136bd2464fbc495c97bb60c7b
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 5741bc6f3f56c424ab71bff31ff4ac81, type: 3}

@@ -1,6 +1,7 @@
 // Enemigo.cs — IA basica (TAD 4)
 // POO: herencia de Personaje, polimorfismo en Atacar()
 using UnityEngine;
+using SafeRun.Core;
 
 namespace SafeRun.Entities
 {
@@ -8,6 +9,7 @@ namespace SafeRun.Entities
 
     public class Enemigo : Personaje
     {
+        protected bool _conteoMuerteRegistrado;
         private SpriteRenderer _spriteRenderer;
         [SerializeField] protected TipoAcoso tipoAcoso;
         [SerializeField] protected float agresividad = 1f;
@@ -344,5 +346,20 @@ namespace SafeRun.Entities
         public bool EstaConfundido => _confundido;
 
         public void SetObjetivo(Transform t) => _objetivoIA = t;
+
+        protected override void Morir()
+        {
+            RegistrarMuerteEnRun();
+            base.Morir();
+        }
+
+        protected virtual void RegistrarMuerteEnRun()
+        {
+            if (_conteoMuerteRegistrado) return;
+            _conteoMuerteRegistrado = true;
+            var stats = RunStatsManager.Instancia;
+            if (stats != null)
+                stats.RegistrarEnemigoDerrotado();
+        }
     }
 }

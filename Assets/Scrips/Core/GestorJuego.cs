@@ -76,12 +76,18 @@ namespace SafeRun.Core
         {
             CambiarEstado(GameState.GameOver);
             SonidoSolicitado?.Invoke("game_over");
+            var stats = RunStatsManager.Instancia;
+            if (stats != null)
+                stats.AbandonarRun();
         }
 
         public void Victoria()
         {
             CambiarEstado(GameState.Victory);
             SonidoSolicitado?.Invoke("victory");
+            var stats = RunStatsManager.Instancia;
+            if (stats != null)
+                stats.TerminarRunVictoria();
         }
 
         private string ObtenerMensajeMotivador()
